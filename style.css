@@ -6,6 +6,10 @@
   /* border: 2px solid red; */
 }
 
+.hidden {
+  display: none;
+}
+
 #shot-UI-container {
   position: absolute;
   left: 0;
@@ -69,6 +73,20 @@
 .expand-trail {
   width: 220px !important;
   transition: width 1020ms linear;
+}
+
+#indicator-ghost {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 4px;
+  height: 18px;
+  margin: auto;
+  border: 1px solid darkGray;
+  border-radius: 1px;
+  background-color: lightGray;
+  z-index: -1;
 }
 
 #meter-release-middle {
