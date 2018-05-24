@@ -1,1 +1,99 @@
+* {
+  margin: 0;
+  padding: 0;
+  user-select: none;
 
+  /* border: 2px solid red; */
+}
+
+.hidden {
+  display: none;
+}
+
+#shot-UI-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 450px;
+  width: 1100px;
+  height: 200px;
+  margin: auto;
+  /* border: 1px solid black; */
+}
+
+#shot-power-meter {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 85px;
+  width: 250px;
+  height: 20px;
+  margin: auto;
+  border: 1px solid black;
+  border-radius: 2px;
+  background-color: lightYellow;
+  z-index: 0;
+}
+
+#power-indicator {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 4px;
+  height: 18px;
+  margin: auto;
+  border: 1px solid darkGray;
+  border-radius: 1px;
+  background-color: lightGray;
+  z-index: 1;
+}
+
+#indicator-trail {
+  position: absolute;
+  left: 8px;
+  top: 3px;
+  width: 4px;
+  height: 14px;
+  border-radius: 1px;
+  background-color: darkGray;
+  z-index: -1;
+}
+
+.power-indicator-move-right {
+  transform: translate(217px);
+  transition: transform 1000ms linear;
+}
+
+.power-indicator-move-left {
+  transform: translate(0px);
+  transition: transform 1000ms linear;
+}
+
+.expand-trail {
+  width: 220px !important;
+  transition: width 1020ms linear;
+}
+
+#indicator-ghost {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 4px;
+  height: 18px;
+  margin: auto;
+  border: 1px solid darkGray;
+  border-radius: 1px;
+  background-color: lightGray;
+  z-index: -1;
+}
+
+#meter-release-middle {
+  position: absolute;
+  left: 20px;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  background-color: darkBlue;
+}
