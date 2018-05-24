@@ -14,5 +14,56 @@
   width: 1100px;
   height: 200px;
   margin: auto;
+  /* border: 1px solid black; */
+}
+
+#shot-power-meter {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 85px;
+  width: 600px;
+  height: 30px;
+  margin: auto;
   border: 1px solid black;
+  background-color: lightYellow;
+}
+
+#power-indicator {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 6px;
+  height: 28px;
+  margin: auto;
+  background-color: lightGray;
+  border: 1px solid darkGray;
+}
+
+#meter-release-left {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50px;
+  height: 30px;
+  background-color: lightYellow;
+}
+
+#meter-release-middle {
+  position: absolute;
+  left: 50px;
+  top: 0;
+  width: 25px;
+  height: 30px;
+  background-color: darkGreen;
+}
+
+#meter-release-right {
+  position: absolute;
+  left: 75px;
+  top: 0;
+  width: 50px;
+  height: 30px;
+  background-color: lightYellow;
 }
