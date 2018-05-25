@@ -42,6 +42,11 @@ $(document).ready(function() {
           $indicatorGhost.addClass("hidden");
           indicatorGhostPositionX = $powerIndicator.position().left;
           spaceBarPress = 0;
+
+          setTimeout(function() {
+            $powerIndicator.removeClass("power-indicator-move-right");
+            $powerIndicator.removeClass("power-indicator-move-left");
+          }, 500);
         }, 1000);
       }, 1000);
 
