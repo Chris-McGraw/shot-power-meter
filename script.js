@@ -41,14 +41,15 @@ $(document).ready(function() {
           $indicatorTrail.css("width", "4px");
           $indicatorGhost.addClass("hidden");
           indicatorGhostPositionX = $powerIndicator.position().left;
-          spaceBarPress = 0;
+          /* spaceBarPress = 0; */
 
           setTimeout(function() {
             $powerIndicator.removeClass("power-indicator-move-right");
             $powerIndicator.removeClass("power-indicator-move-left");
-          }, 500);
-        }, 1000);
-      }, 1000);
+            spaceBarPress = 0;
+          }, 700);
+        }, 1200);
+      }, 1200);
 
       spaceBarPress = 1;
     }
@@ -57,8 +58,8 @@ $(document).ready(function() {
       indicatorGhostPositionX = $powerIndicator.position().left;
       $indicatorTrail.removeClass("expand-trail");
       $indicatorTrail.removeClass("retract-trail");
-      $indicatorTrail.css("width", indicatorGhostPositionX - 3 + "px");
-      $indicatorGhost.css("left", indicatorGhostPositionX + "px");
+      $indicatorTrail.css("width", indicatorGhostPositionX + "px");
+      $indicatorGhost.css("left", indicatorGhostPositionX + 7 + "px");
       $indicatorGhost.removeClass("hidden");
 
       spaceBarPress = 2;

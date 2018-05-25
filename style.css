@@ -62,27 +62,27 @@
 
 .power-indicator-move-right {
   transform: translate(217px);
-  transition: transform 1000ms linear;
+  transition: transform 1200ms linear;
 }
 
 .power-indicator-move-return {
   transform: translate(0px);
-  transition: transform 1000ms linear;
+  transition: transform 1200ms linear;
 }
 
 .power-indicator-move-left {
   transform: translate(-27px);
-  transition: transform 1270ms linear;
+  transition: transform 1470ms linear;
 }
 
 .expand-trail {
   width: 220px !important;
-  transition: width 1020ms linear;
+  transition: width 1220ms linear;
 }
 
 .retract-trail {
   width: 4px !important;
-  transition: width 1020ms linear;
+  transition: width 1220ms linear;
 }
 
 #indicator-ghost {
