@@ -28,7 +28,7 @@ $(document).ready(function() {
         setTimeout(function() {
           if(spaceBarPress === 2) {
             $powerIndicator.removeClass("power-indicator-move-return");
-            $powerIndicator.addClass("power-indicator-move-left");
+            $powerIndicator.addClass("power-indicator-finish-left");
           }
           else {
             $powerIndicator.removeClass("power-indicator-move-right");
@@ -36,16 +36,17 @@ $(document).ready(function() {
           }
 
           $powerIndicator.removeClass("power-indicator-move-return");
-          $indicatorTrail.removeClass("expand-trail");
-          $indicatorTrail.removeClass("retract-trail");
-          $indicatorTrail.css("width", "4px");
-          $indicatorGhost.addClass("hidden");
           indicatorGhostPositionX = $powerIndicator.position().left;
           /* spaceBarPress = 0; */
 
           setTimeout(function() {
+            $indicatorTrail.removeClass("expand-trail");
+            $indicatorTrail.removeClass("retract-trail");
+            $indicatorTrail.css("width", "4px");
+            $indicatorGhost.addClass("hidden");
             $powerIndicator.removeClass("power-indicator-move-right");
             $powerIndicator.removeClass("power-indicator-move-left");
+            $powerIndicator.removeClass("power-indicator-finish-left");
             spaceBarPress = 0;
           }, 700);
         }, 1200);

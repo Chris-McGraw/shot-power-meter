@@ -75,6 +75,11 @@
   transition: transform 1470ms linear;
 }
 
+.power-indicator-finish-left {
+  transform: translate(-27px);
+  transition: transform 270ms linear;
+}
+
 .expand-trail {
   width: 220px !important;
   transition: width 1220ms linear;
