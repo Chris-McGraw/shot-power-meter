@@ -21,11 +21,23 @@ $(document).ready(function() {
         else {
           $powerIndicator.removeClass("power-indicator-move-right");
           $powerIndicator.addClass("power-indicator-move-return");
+          $indicatorTrail.removeClass("expand-trail");
+          $indicatorTrail.addClass("retract-trail");
         }
 
         setTimeout(function() {
+          if(spaceBarPress === 2) {
+            $powerIndicator.removeClass("power-indicator-move-return");
+            $powerIndicator.addClass("power-indicator-move-left");
+          }
+          else {
+            $powerIndicator.removeClass("power-indicator-move-right");
+            $powerIndicator.addClass("power-indicator-move-return");
+          }
+
           $powerIndicator.removeClass("power-indicator-move-return");
           $indicatorTrail.removeClass("expand-trail");
+          $indicatorTrail.removeClass("retract-trail");
           $indicatorTrail.css("width", "4px");
           $indicatorGhost.addClass("hidden");
           indicatorGhostPositionX = $powerIndicator.position().left;
@@ -39,6 +51,7 @@ $(document).ready(function() {
     else if(event.which === 32 && spaceBarPress === 1) {
       indicatorGhostPositionX = $powerIndicator.position().left;
       $indicatorTrail.removeClass("expand-trail");
+      $indicatorTrail.removeClass("retract-trail");
       $indicatorTrail.css("width", indicatorGhostPositionX - 3 + "px");
       $indicatorGhost.css("left", indicatorGhostPositionX + "px");
       $indicatorGhost.removeClass("hidden");

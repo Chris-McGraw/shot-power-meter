@@ -80,6 +80,11 @@
   transition: width 1020ms linear;
 }
 
+.retract-trail {
+  width: 4px !important;
+  transition: width 1020ms linear;
+}
+
 #indicator-ghost {
   position: absolute;
   left: 0;
