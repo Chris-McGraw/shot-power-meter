@@ -65,9 +65,14 @@
   transition: transform 1000ms linear;
 }
 
-.power-indicator-move-left {
+.power-indicator-move-return {
   transform: translate(0px);
   transition: transform 1000ms linear;
+}
+
+.power-indicator-move-left {
+  transform: translate(-27px);
+  transition: transform 1270ms linear;
 }
 
 .expand-trail {
