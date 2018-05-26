@@ -9,6 +9,7 @@ $(document).ready(function() {
   var spaceBarPress = 0;
 
   $(document).keydown(function(event) {
+  /* ------------------- Spacebar Press 1  ------------------- */
     if(event.which === 32 && spaceBarPress === 0) {
       $powerIndicator.addClass("power-indicator-move-right");
       $indicatorTrail.addClass("expand-trail");
@@ -37,7 +38,6 @@ $(document).ready(function() {
 
           $powerIndicator.removeClass("power-indicator-move-return");
           indicatorGhostPositionX = $powerIndicator.position().left;
-          /* spaceBarPress = 0; */
 
           setTimeout(function() {
             $indicatorTrail.removeClass("expand-trail");
@@ -47,6 +47,7 @@ $(document).ready(function() {
             $powerIndicator.removeClass("power-indicator-move-right");
             $powerIndicator.removeClass("power-indicator-move-left");
             $powerIndicator.removeClass("power-indicator-finish-left");
+            $powerIndicator.css("left", "0px");
             spaceBarPress = 0;
           }, 700);
         }, 1200);
@@ -55,6 +56,7 @@ $(document).ready(function() {
       spaceBarPress = 1;
     }
 
+  /* ------------------- Spacebar Press 2  ------------------- */
     else if(event.which === 32 && spaceBarPress === 1) {
       indicatorGhostPositionX = $powerIndicator.position().left;
       $indicatorTrail.removeClass("expand-trail");
@@ -64,6 +66,27 @@ $(document).ready(function() {
       $indicatorGhost.removeClass("hidden");
 
       spaceBarPress = 2;
+    }
+
+  /* ------------------- Spacebar Press 3  ------------------- */
+    else if(event.which === 32 && spaceBarPress === 2) {
+      indicatorGhostPositionX = $powerIndicator.position().left;
+
+      if(indicatorGhostPositionX > 10) {
+        $powerIndicator.css("left", indicatorGhostPositionX + 7 + "px");
+        /* console.log(indicatorGhostPositionX); */
+      }
+      else {
+        $powerIndicator.css("left", indicatorGhostPositionX * 2 + "px");
+        /* console.log(indicatorGhostPositionX); */
+      }
+
+      $powerIndicator.removeClass("power-indicator-move-right");
+      $powerIndicator.removeClass("power-indicator-move-return");
+      $powerIndicator.removeClass("power-indicator-move-left");
+      $powerIndicator.removeClass("power-indicator-finish-left");
+
+      spaceBarPress = 3;
     }
   });
 
