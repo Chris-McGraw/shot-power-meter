@@ -19,11 +19,15 @@ $(document).ready(function() {
           $powerIndicator.removeClass("power-indicator-move-return");
           $powerIndicator.addClass("power-indicator-move-left");
         }
-        else {
+        else if(spaceBarPress === 1) {
           $powerIndicator.removeClass("power-indicator-move-right");
           $powerIndicator.addClass("power-indicator-move-return");
           $indicatorTrail.removeClass("expand-trail");
           $indicatorTrail.addClass("retract-trail");
+        }
+        else {
+          $powerIndicator.removeClass("power-indicator-move-right");
+          $powerIndicator.addClass("power-indicator-move-return");
         }
 
         setTimeout(function() {
