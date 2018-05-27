@@ -15,9 +15,10 @@
   left: 0;
   right: 0;
   top: 50px;
-  width: 600px;
-  height: 400px;
+  width: 608px;
+  height: 448px;
   margin: auto;
+  background-image: url("https://res.cloudinary.com/dtwyohvli/image/upload/v1527379317/hole-1-bg-test-608x448_z3n1ll.png");
   border: 1px solid black;
 }
 
@@ -25,7 +26,7 @@
   position: absolute;
   left: 0;
   right: 0;
-  top: 349px;
+  top: 397px;
   width: 400px;
   height: 50px;
   margin: auto;
