@@ -10,6 +10,30 @@
   display: none;
 }
 
+#disc {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 342px;
+  width: 10px;
+  height: 10px;
+  margin: auto;
+  background-image: url("https://res.cloudinary.com/dtwyohvli/image/upload/v1527429339/disc-16x16_wi4gex.png");
+
+  /* border: 1px solid black; */
+}
+
+.disc-shot {
+  transform: translate(50px, -304px) rotate(360deg);
+  transition: transform 1500ms ease-out;
+  rotate
+}
+
+.disc-return {
+  position: absolute;
+  top: 342px;
+}
+
 #screen-container {
   position: absolute;
   left: 0;
@@ -18,7 +42,7 @@
   width: 608px;
   height: 448px;
   margin: auto;
-  background-image: url("https://res.cloudinary.com/dtwyohvli/image/upload/v1527379317/hole-1-bg-test-608x448_z3n1ll.png");
+  background-image: url("https://res.cloudinary.com/dtwyohvli/image/upload/v1527431556/hole-test-blank-tee-608x448_uw3o4j.png");
   border: 1px solid black;
 }
 
