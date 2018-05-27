@@ -1,12 +1,27 @@
 $(document).ready(function() {
 
 /* ------------------------- Variable Declarations ------------------------- */
+
+  var $disc = $("#disc");
   var $powerIndicator = $("#power-indicator");
   var $indicatorTrail = $("#indicator-trail");
   var $indicatorGhost = $("#indicator-ghost");
 
   var indicatorGhostPositionX = 0;
   var spaceBarPress = 0;
+
+/* ------------------------- Function Declarations ------------------------- */
+
+  function playerShot() {
+    $disc.addClass("disc-shot");
+
+    setTimeout(function() {
+      $disc.removeClass("disc-shot");
+      $disc.addClass("disc-return");
+    }, 2500);
+  }
+
+/* ---------------------------- Event Handlers ---------------------------- */
 
   $(document).keydown(function(event) {
   /* ------------------- Spacebar Press 1  ------------------- */
@@ -84,6 +99,8 @@ $(document).ready(function() {
         $powerIndicator.css("left", indicatorGhostPositionX * 2 + "px");
         /* console.log(indicatorGhostPositionX); */
       }
+
+      playerShot();
 
       $powerIndicator.removeClass("power-indicator-move-right");
       $powerIndicator.removeClass("power-indicator-move-return");
