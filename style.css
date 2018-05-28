@@ -23,10 +23,14 @@
   /* border: 1px solid black; */
 }
 
-.disc-shot {
-  transform: translate(50px, -304px) rotate(360deg);
-  transition: transform 1500ms ease-out;
-  rotate
+.disc-shot-1 {
+  transform: translate(40px, -190px) rotate(90deg);
+  transition: transform 1000ms linear;
+}
+
+.disc-shot-2 {
+  transform: translate(15px, -290px) rotate(90deg);
+  transition: transform 1200ms ease-out;
 }
 
 .disc-return {

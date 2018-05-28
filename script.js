@@ -13,12 +13,17 @@ $(document).ready(function() {
 /* ------------------------- Function Declarations ------------------------- */
 
   function playerShot() {
-    $disc.addClass("disc-shot");
+    $disc.addClass("disc-shot-1");
 
     setTimeout(function() {
-      $disc.removeClass("disc-shot");
+      $disc.addClass("disc-shot-2");
+    }, 1000);
+
+    setTimeout(function() {
+      $disc.removeClass("disc-shot-1");
+      $disc.removeClass("disc-shot-2");
       $disc.addClass("disc-return");
-    }, 2500);
+    }, 3000);
   }
 
 /* ---------------------------- Event Handlers ---------------------------- */
