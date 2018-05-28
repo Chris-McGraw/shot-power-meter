@@ -3,6 +3,7 @@ $(document).ready(function() {
 /* ------------------------- Variable Declarations ------------------------- */
 
   var $disc = $("#disc");
+  var $discShadow = $("#disc-shadow");
   var $powerIndicator = $("#power-indicator");
   var $indicatorTrail = $("#indicator-trail");
   var $indicatorGhost = $("#indicator-ghost");
@@ -14,15 +15,20 @@ $(document).ready(function() {
 
   function playerShot() {
     $disc.addClass("disc-shot-1");
+    $discShadow.addClass("disc-shadow-shot-1");
 
     setTimeout(function() {
       $disc.addClass("disc-shot-2");
+      $discShadow.addClass("disc-shadow-shot-2");
     }, 1000);
 
     setTimeout(function() {
       $disc.removeClass("disc-shot-1");
       $disc.removeClass("disc-shot-2");
       $disc.addClass("disc-return");
+      $discShadow.removeClass("disc-shadow-shot-1");
+      $discShadow.removeClass("disc-shadow-shot-2");
+      $discShadow.addClass("disc-return");
     }, 3000);
   }
 
