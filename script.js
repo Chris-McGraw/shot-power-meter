@@ -19,7 +19,14 @@ $(document).ready(function() {
 
   function playerShot() {
     if(shotPower >= 187 && shotPower <= 217) {
-      shotLength1 = -190 + 0;
+      shotLength1 = -210 + 0;
+      $disc.addClass("disc-shot-1");
+      $disc.css({"transform": "translate(40px," + shotLength1 + "px) rotate(90deg)"});
+
+      console.log("log2: " + shotLength1);
+    }
+    else if(shotPower >= 156 && shotPower <= 186) {
+      shotLength1 = -210 + 30;
       $disc.addClass("disc-shot-1");
       $disc.css({"transform": "translate(40px," + shotLength1 + "px) rotate(90deg)"});
 
@@ -30,7 +37,14 @@ $(document).ready(function() {
 
     setTimeout(function() {
       if(shotPower >= 187 && shotPower <= 217) {
-        shotLength2 = -290 + 0;
+        shotLength2 = -315 + 0;
+        $disc.addClass("disc-shot-2");
+        $disc.css({"transform": "translate(15px," + shotLength2 + "px) rotate(90deg)"});
+
+        console.log("log3: " + shotLength2);
+      }
+      else if(shotPower >= 156 && shotPower <= 186) {
+        shotLength2 = -315 + 45;
         $disc.addClass("disc-shot-2");
         $disc.css({"transform": "translate(15px," + shotLength2 + "px) rotate(90deg)"});
 
