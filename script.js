@@ -40,7 +40,19 @@ $(document).ready(function() {
       shadowMultiplier1 = Math.floor(shotLength1 * 0.15);
       shadowShotLength1 = shotLength1 - shadowMultiplier1;
       $discShadow.addClass("disc-shadow-shot-1");
-      $discShadow.css({"transform": "translate(40px," + shadowShotLength1 + "px) rotate(90deg)"});
+      $discShadow.css({"transform": "translate(36px," + shadowShotLength1 + "px) rotate(90deg)"});
+    }
+    else if(shotPower >= 125 && shotPower <= 155) {
+      shotLength1 = -210 + 60;
+      $disc.addClass("disc-shot-1");
+      $disc.css({"transform": "translate(36px," + shotLength1 + "px) rotate(90deg)"});
+
+      console.log("log2: " + shotLength1);
+
+      shadowMultiplier1 = Math.floor(shotLength1 * 0.15);
+      shadowShotLength1 = shotLength1 - shadowMultiplier1;
+      $discShadow.addClass("disc-shadow-shot-1");
+      $discShadow.css({"transform": "translate(36px," + shadowShotLength1 + "px) rotate(90deg)"});
     }
 
     setTimeout(function() {
@@ -53,6 +65,13 @@ $(document).ready(function() {
       }
       else if(shotPower >= 156 && shotPower <= 186) {
         shotLength2 = -315 + 45;
+        $disc.addClass("disc-shot-2");
+        $disc.css({"transform": "translate(15px," + shotLength2 + "px) rotate(90deg)"});
+
+        console.log("log3: " + shotLength2);
+      }
+      else if(shotPower >= 125 && shotPower <= 155) {
+        shotLength2 = -315 + 90;
         $disc.addClass("disc-shot-2");
         $disc.css({"transform": "translate(15px," + shotLength2 + "px) rotate(90deg)"});
 
