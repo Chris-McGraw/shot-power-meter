@@ -3,6 +3,7 @@ $(document).ready(function() {
 /* ------------------------- Variable Declarations ------------------------- */
 
   var $disc = $("#disc");
+  var $discShadow = $("#disc-shadow");
   var $powerIndicator = $("#power-indicator");
   var $indicatorTrail = $("#indicator-trail");
   var $indicatorGhost = $("#indicator-ghost");
@@ -10,15 +11,89 @@ $(document).ready(function() {
   var indicatorGhostPositionX = 0;
   var spaceBarPress = 0;
 
+  var shotPower = 0;
+  var shotLength1 = 0;
+  var shotLength2 = 0;
+
 /* ------------------------- Function Declarations ------------------------- */
 
   function playerShot() {
-    $disc.addClass("disc-shot");
+    if(shotPower >= 187 && shotPower <= 217) {
+      shotLength1 = -210 + 0;
+      $disc.addClass("disc-shot-1");
+      $disc.css({"transform": "translate(40px," + shotLength1 + "px) rotate(90deg)"});
+
+      console.log("log2: " + shotLength1);
+
+      shadowMultiplier1 = Math.floor(shotLength1 * 0.15);
+      shadowShotLength1 = shotLength1 - shadowMultiplier1;
+      $discShadow.addClass("disc-shadow-shot-1");
+      $discShadow.css({"transform": "translate(40px," + shadowShotLength1 + "px) rotate(90deg)"});
+    }
+    else if(shotPower >= 156 && shotPower <= 186) {
+      shotLength1 = -210 + 30;
+      $disc.addClass("disc-shot-1");
+      $disc.css({"transform": "translate(40px," + shotLength1 + "px) rotate(90deg)"});
+
+      console.log("log2: " + shotLength1);
+
+      shadowMultiplier1 = Math.floor(shotLength1 * 0.15);
+      shadowShotLength1 = shotLength1 - shadowMultiplier1;
+      $discShadow.addClass("disc-shadow-shot-1");
+      $discShadow.css({"transform": "translate(36px," + shadowShotLength1 + "px) rotate(90deg)"});
+    }
+    else if(shotPower >= 125 && shotPower <= 155) {
+      shotLength1 = -210 + 60;
+      $disc.addClass("disc-shot-1");
+      $disc.css({"transform": "translate(36px," + shotLength1 + "px) rotate(90deg)"});
+
+      console.log("log2: " + shotLength1);
+
+      shadowMultiplier1 = Math.floor(shotLength1 * 0.15);
+      shadowShotLength1 = shotLength1 - shadowMultiplier1;
+      $discShadow.addClass("disc-shadow-shot-1");
+      $discShadow.css({"transform": "translate(36px," + shadowShotLength1 + "px) rotate(90deg)"});
+    }
 
     setTimeout(function() {
-      $disc.removeClass("disc-shot");
+      if(shotPower >= 187 && shotPower <= 217) {
+        shotLength2 = -315 + 0;
+        $disc.addClass("disc-shot-2");
+        $disc.css({"transform": "translate(15px," + shotLength2 + "px) rotate(90deg)"});
+
+        console.log("log3: " + shotLength2);
+      }
+      else if(shotPower >= 156 && shotPower <= 186) {
+        shotLength2 = -315 + 45;
+        $disc.addClass("disc-shot-2");
+        $disc.css({"transform": "translate(15px," + shotLength2 + "px) rotate(90deg)"});
+
+        console.log("log3: " + shotLength2);
+      }
+      else if(shotPower >= 125 && shotPower <= 155) {
+        shotLength2 = -315 + 90;
+        $disc.addClass("disc-shot-2");
+        $disc.css({"transform": "translate(15px," + shotLength2 + "px) rotate(90deg)"});
+
+        console.log("log3: " + shotLength2);
+      }
+
+      shadowShotLength2 = shotLength2;
+      $discShadow.addClass("disc-shadow-shot-2");
+      $discShadow.css({"transform": "translate(15px," + shadowShotLength2 + "px) rotate(90deg)"});
+    }, 1000);
+
+    setTimeout(function() {
+      $disc.removeClass("disc-shot-1");
+      $disc.removeClass("disc-shot-2");
+      $disc.removeAttr("style");
       $disc.addClass("disc-return");
-    }, 2500);
+
+      $discShadow.removeClass("disc-shadow-shot-1");
+      $discShadow.removeClass("disc-shadow-shot-2");
+      $discShadow.removeAttr("style");
+      $discShadow.addClass("disc-return");
+    }, 3000);
   }
 
 /* ---------------------------- Event Handlers ---------------------------- */
@@ -83,6 +158,9 @@ $(document).ready(function() {
       $indicatorTrail.css("width", indicatorGhostPositionX + "px");
       $indicatorGhost.css("left", indicatorGhostPositionX + 7 + "px");
       $indicatorGhost.removeClass("hidden");
+
+      shotPower = Math.floor($powerIndicator.position().left);
+      console.log(shotPower);
 
       spaceBarPress = 2;
     }
