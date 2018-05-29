@@ -29,6 +29,11 @@ $(document).ready(function() {
 
         console.log("log2: " + (shotLength * -1));
 
+        shadowMultiplier1 = Math.floor((shotLength * -1) * 0.15);
+        shadowShotLength1 = (shotLength * -1) - shadowMultiplier1;
+        $discShadow.addClass("disc-shadow-shot-1");
+        $discShadow.css({"transform": "translate(40px," + shadowShotLength1 + "px) rotate(90deg)"});
+
   /* ----- Shot 2 Functionality ----- */
         setTimeout(function() {
           shotLength2 = -310 - (-10 * shotLoopCount);
@@ -37,6 +42,10 @@ $(document).ready(function() {
 
           console.log("log3: " + shotLength2);
           console.log("");
+
+          shadowShotLength2 = shotLength2;
+          $discShadow.addClass("disc-shadow-shot-2");
+          $discShadow.css({"transform": "translate(15px," + shadowShotLength2 + "px) rotate(90deg)"});
         }, 1000);
       }
       setTimeout(function() {
