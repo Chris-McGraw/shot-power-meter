@@ -12,77 +12,38 @@ $(document).ready(function() {
   var spaceBarPress = 0;
 
   var shotPower = 0;
-  var shotLength1 = 0;
+  var shotLength = 0;
   var shotLength2 = 0;
+  var shotLoopCount = 0;
 
 /* ------------------------- Function Declarations ------------------------- */
 
   function playerShot() {
-    if(shotPower >= 187 && shotPower <= 217) {
-      shotLength1 = -210 + 0;
-      $disc.addClass("disc-shot-1");
-      $disc.css({"transform": "translate(40px," + shotLength1 + "px) rotate(90deg)"});
+    for(shotLength = 217; shotLength > 0; shotLength -= 7) {
+      if(shotPower >= (shotLength - 6) && shotPower <= (shotLength)) {
+        console.log("is " + shotPower + " greater than or equal to " + (shotLength - 6));
+        console.log("and less than or equal to " + (shotLength) + "?");
 
-      console.log("log2: " + shotLength1);
+        $disc.addClass("disc-shot-1");
+        $disc.css({"transform": "translate(40px," + (shotLength * -1) + "px) rotate(90deg)"});
 
-      shadowMultiplier1 = Math.floor(shotLength1 * 0.15);
-      shadowShotLength1 = shotLength1 - shadowMultiplier1;
-      $discShadow.addClass("disc-shadow-shot-1");
-      $discShadow.css({"transform": "translate(40px," + shadowShotLength1 + "px) rotate(90deg)"});
-    }
-    else if(shotPower >= 156 && shotPower <= 186) {
-      shotLength1 = -210 + 30;
-      $disc.addClass("disc-shot-1");
-      $disc.css({"transform": "translate(40px," + shotLength1 + "px) rotate(90deg)"});
+        console.log("log2: " + (shotLength * -1));
 
-      console.log("log2: " + shotLength1);
+  /* ----- Shot 2 Functionality ----- */
+        setTimeout(function() {
+          shotLength2 = -310 - (-10 * shotLoopCount);
+          $disc.addClass("disc-shot-2");
+          $disc.css({"transform": "translate(15px," + shotLength2 + "px) rotate(90deg)"});
 
-      shadowMultiplier1 = Math.floor(shotLength1 * 0.15);
-      shadowShotLength1 = shotLength1 - shadowMultiplier1;
-      $discShadow.addClass("disc-shadow-shot-1");
-      $discShadow.css({"transform": "translate(36px," + shadowShotLength1 + "px) rotate(90deg)"});
-    }
-    else if(shotPower >= 125 && shotPower <= 155) {
-      shotLength1 = -210 + 60;
-      $disc.addClass("disc-shot-1");
-      $disc.css({"transform": "translate(36px," + shotLength1 + "px) rotate(90deg)"});
-
-      console.log("log2: " + shotLength1);
-
-      shadowMultiplier1 = Math.floor(shotLength1 * 0.15);
-      shadowShotLength1 = shotLength1 - shadowMultiplier1;
-      $discShadow.addClass("disc-shadow-shot-1");
-      $discShadow.css({"transform": "translate(36px," + shadowShotLength1 + "px) rotate(90deg)"});
-    }
-
-    setTimeout(function() {
-      if(shotPower >= 187 && shotPower <= 217) {
-        shotLength2 = -315 + 0;
-        $disc.addClass("disc-shot-2");
-        $disc.css({"transform": "translate(15px," + shotLength2 + "px) rotate(90deg)"});
-
-        console.log("log3: " + shotLength2);
+          console.log("log3: " + shotLength2);
+          console.log("");
+        }, 1000);
       }
-      else if(shotPower >= 156 && shotPower <= 186) {
-        shotLength2 = -315 + 45;
-        $disc.addClass("disc-shot-2");
-        $disc.css({"transform": "translate(15px," + shotLength2 + "px) rotate(90deg)"});
-
-        console.log("log3: " + shotLength2);
-      }
-      else if(shotPower >= 125 && shotPower <= 155) {
-        shotLength2 = -315 + 90;
-        $disc.addClass("disc-shot-2");
-        $disc.css({"transform": "translate(15px," + shotLength2 + "px) rotate(90deg)"});
-
-        console.log("log3: " + shotLength2);
-      }
-
-      shadowShotLength2 = shotLength2;
-      $discShadow.addClass("disc-shadow-shot-2");
-      $discShadow.css({"transform": "translate(15px," + shadowShotLength2 + "px) rotate(90deg)"});
-    }, 1000);
-
+      setTimeout(function() {
+        shotLoopCount++;
+      }, 1000);
+    }
+  /* ----- Shot Reset Functionality ----- */
     setTimeout(function() {
       $disc.removeClass("disc-shot-1");
       $disc.removeClass("disc-shot-2");
@@ -93,6 +54,9 @@ $(document).ready(function() {
       $discShadow.removeClass("disc-shadow-shot-2");
       $discShadow.removeAttr("style");
       $discShadow.addClass("disc-return");
+
+      shotLoopCount = 0;
+
     }, 3000);
   }
 
@@ -160,7 +124,7 @@ $(document).ready(function() {
       $indicatorGhost.removeClass("hidden");
 
       shotPower = Math.floor($powerIndicator.position().left);
-      console.log(shotPower);
+      console.log("shotPower = " + shotPower);
 
       spaceBarPress = 2;
     }
