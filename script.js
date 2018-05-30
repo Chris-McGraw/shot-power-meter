@@ -14,6 +14,7 @@ $(document).ready(function() {
   var shotPower = 0;
   var shotLength = 0;
   var shotLength2 = 0;
+  var releasePoint = 0;
   var shotLoopCount = 0;
 
 /* ------------------------- Function Declarations ------------------------- */
@@ -25,27 +26,27 @@ $(document).ready(function() {
         console.log("and less than or equal to " + (shotLength) + "?");
 
         $disc.addClass("disc-shot-1");
-        $disc.css({"transform": "translate(40px," + (shotLength * -1) + "px) rotate(90deg)"});
+        $disc.css({"transform": "translate(25px," + (shotLength * -1) + "px) rotate(90deg)"});
 
         console.log("log2: " + (shotLength * -1));
 
         shadowMultiplier1 = Math.floor((shotLength * -1) * 0.15);
         shadowShotLength1 = (shotLength * -1) - shadowMultiplier1;
         $discShadow.addClass("disc-shadow-shot-1");
-        $discShadow.css({"transform": "translate(40px," + shadowShotLength1 + "px) rotate(90deg)"});
+        $discShadow.css({"transform": "translate(25px," + shadowShotLength1 + "px) rotate(90deg)"});
 
   /* ----- Shot 2 Functionality ----- */
         setTimeout(function() {
           shotLength2 = -310 - (-10 * shotLoopCount);
           $disc.addClass("disc-shot-2");
-          $disc.css({"transform": "translate(15px," + shotLength2 + "px) rotate(90deg)"});
+          $disc.css({"transform": "translate(0px," + shotLength2 + "px) rotate(90deg)"});
 
           console.log("log3: " + shotLength2);
           console.log("");
 
           shadowShotLength2 = shotLength2;
           $discShadow.addClass("disc-shadow-shot-2");
-          $discShadow.css({"transform": "translate(15px," + shadowShotLength2 + "px) rotate(90deg)"});
+          $discShadow.css({"transform": "translate(0px," + shadowShotLength2 + "px) rotate(90deg)"});
         }, 1000);
       }
       setTimeout(function() {
@@ -144,11 +145,19 @@ $(document).ready(function() {
 
       if(indicatorGhostPositionX > 10) {
         $powerIndicator.css("left", indicatorGhostPositionX + 7 + "px");
-        /* console.log(indicatorGhostPositionX); */
+
+        releasePoint = Math.floor(indicatorGhostPositionX);
+
+        console.log("releasePoint = " + releasePoint);
+        console.log("-----");
       }
       else {
         $powerIndicator.css("left", indicatorGhostPositionX * 2 + "px");
-        /* console.log(indicatorGhostPositionX); */
+
+        releasePoint = Math.floor(indicatorGhostPositionX);
+
+        console.log("releasePoint = " + releasePoint);
+        console.log("-----");
       }
 
       playerShot();
