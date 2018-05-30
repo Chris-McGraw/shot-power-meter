@@ -24,14 +24,14 @@ $(document).ready(function() {
   function playerShot() {
     for(shotLoopValue = 217; shotLoopValue > 0; shotLoopValue -= 7) {
       if(shotPower >= (shotLoopValue - 6) && shotPower <= (shotLoopValue)) {
-        console.log("is " + shotPower + " greater than or equal to " + (shotLoopValue - 6));
-        console.log("and less than or equal to " + (shotLoopValue) + "?");
+        /* console.log("is " + shotPower + " greater than or equal to " + (shotLoopValue - 6));
+        console.log("and less than or equal to " + (shotLoopValue) + "?"); */
 
         shotLength1 = -217 - (-7 * shotLoopCount1);
         $disc.addClass("disc-shot-1");
         $disc.css({"transform": "translate(25px," + shotLength1 + "px) rotate(90deg)"});
 
-        console.log("log2: " + shotLength1);
+        console.log("shotLength1 = " + shotLength1);
 
         shadowMultiplier1 = Math.floor(shotLength1 * 0.15);
         shadowShotLength1 = (shotLength1 - shadowMultiplier1);
@@ -44,7 +44,7 @@ $(document).ready(function() {
           $disc.addClass("disc-shot-2");
           $disc.css({"transform": "translate(0px," + shotLength2 + "px) rotate(90deg)"});
 
-          console.log("log3: " + shotLength2);
+          console.log("shotLength2 = " + shotLength2);
           console.log("");
 
           shadowShotLength2 = shotLength2;
@@ -149,19 +149,15 @@ $(document).ready(function() {
 
       if(indicatorGhostPositionX > 10) {
         $powerIndicator.css("left", indicatorGhostPositionX + 7 + "px");
-
         releasePoint = Math.floor(indicatorGhostPositionX);
 
         console.log("releasePoint = " + releasePoint);
-        console.log("-----");
       }
       else {
         $powerIndicator.css("left", indicatorGhostPositionX * 2 + "px");
-
         releasePoint = Math.floor(indicatorGhostPositionX);
 
         console.log("releasePoint = " + releasePoint);
-        console.log("-----");
       }
 
       playerShot();
