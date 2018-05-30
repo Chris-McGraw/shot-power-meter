@@ -13,10 +13,11 @@ $(document).ready(function() {
 
   var shotLoopValue = 0;
   var shotPower = 0;
-  /* var shotLength = 0; */
+  var shotLength1 = 0;
   var shotLength2 = 0;
   var releasePoint = 0;
-  var shotLoopCount = 0;
+  var shotLoopCount1 = 0;
+  var shotLoopCount2 = 0;
 
 /* ------------------------- Function Declarations ------------------------- */
 
@@ -26,19 +27,20 @@ $(document).ready(function() {
         console.log("is " + shotPower + " greater than or equal to " + (shotLoopValue - 6));
         console.log("and less than or equal to " + (shotLoopValue) + "?");
 
+        shotLength1 = -217 - (-7 * shotLoopCount1);
         $disc.addClass("disc-shot-1");
-        $disc.css({"transform": "translate(25px," + (shotLoopValue * -1) + "px) rotate(90deg)"});
+        $disc.css({"transform": "translate(25px," + shotLength1 + "px) rotate(90deg)"});
 
-        console.log("log2: " + (shotLoopValue * -1));
+        console.log("log2: " + shotLength1);
 
-        shadowMultiplier1 = Math.floor((shotLoopValue * -1) * 0.15);
-        shadowShotLength1 = (shotLoopValue * -1) - shadowMultiplier1;
+        shadowMultiplier1 = Math.floor(shotLength1 * 0.15);
+        shadowShotLength1 = (shotLength1 - shadowMultiplier1);
         $discShadow.addClass("disc-shadow-shot-1");
         $discShadow.css({"transform": "translate(25px," + shadowShotLength1 + "px) rotate(90deg)"});
 
   /* ----- Shot 2 Functionality ----- */
         setTimeout(function() {
-          shotLength2 = -310 - (-10 * shotLoopCount);
+          shotLength2 = -310 - (-10 * shotLoopCount2);
           $disc.addClass("disc-shot-2");
           $disc.css({"transform": "translate(0px," + shotLength2 + "px) rotate(90deg)"});
 
@@ -50,8 +52,9 @@ $(document).ready(function() {
           $discShadow.css({"transform": "translate(0px," + shadowShotLength2 + "px) rotate(90deg)"});
         }, 1000);
       }
+      shotLoopCount1++;
       setTimeout(function() {
-        shotLoopCount++;
+        shotLoopCount2++;
       }, 1000);
     }
   /* ----- Shot Reset Functionality ----- */
@@ -66,8 +69,8 @@ $(document).ready(function() {
       $discShadow.removeAttr("style");
       $discShadow.addClass("disc-return");
 
-      shotLoopCount = 0;
-
+      shotLoopCount1 = 0;
+      shotLoopCount2 = 0;
     }, 3000);
   }
 
