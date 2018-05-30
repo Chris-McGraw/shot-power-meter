@@ -11,8 +11,9 @@ $(document).ready(function() {
   var indicatorGhostPositionX = 0;
   var spaceBarPress = 0;
 
+  var shotLoopValue = 0;
   var shotPower = 0;
-  var shotLength = 0;
+  /* var shotLength = 0; */
   var shotLength2 = 0;
   var releasePoint = 0;
   var shotLoopCount = 0;
@@ -20,18 +21,18 @@ $(document).ready(function() {
 /* ------------------------- Function Declarations ------------------------- */
 
   function playerShot() {
-    for(shotLength = 217; shotLength > 0; shotLength -= 7) {
-      if(shotPower >= (shotLength - 6) && shotPower <= (shotLength)) {
-        console.log("is " + shotPower + " greater than or equal to " + (shotLength - 6));
-        console.log("and less than or equal to " + (shotLength) + "?");
+    for(shotLoopValue = 217; shotLoopValue > 0; shotLoopValue -= 7) {
+      if(shotPower >= (shotLoopValue - 6) && shotPower <= (shotLoopValue)) {
+        console.log("is " + shotPower + " greater than or equal to " + (shotLoopValue - 6));
+        console.log("and less than or equal to " + (shotLoopValue) + "?");
 
         $disc.addClass("disc-shot-1");
-        $disc.css({"transform": "translate(25px," + (shotLength * -1) + "px) rotate(90deg)"});
+        $disc.css({"transform": "translate(25px," + (shotLoopValue * -1) + "px) rotate(90deg)"});
 
-        console.log("log2: " + (shotLength * -1));
+        console.log("log2: " + (shotLoopValue * -1));
 
-        shadowMultiplier1 = Math.floor((shotLength * -1) * 0.15);
-        shadowShotLength1 = (shotLength * -1) - shadowMultiplier1;
+        shadowMultiplier1 = Math.floor((shotLoopValue * -1) * 0.15);
+        shadowShotLength1 = (shotLoopValue * -1) - shadowMultiplier1;
         $discShadow.addClass("disc-shadow-shot-1");
         $discShadow.css({"transform": "translate(25px," + shadowShotLength1 + "px) rotate(90deg)"});
 
