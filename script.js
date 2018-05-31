@@ -24,33 +24,37 @@ $(document).ready(function() {
   function playerShot() {
     for(shotLoopValue = 217; shotLoopValue > 0; shotLoopValue -= 7) {
       if(shotPower >= (shotLoopValue - 6) && shotPower <= (shotLoopValue)) {
-        /* console.log("is " + shotPower + " greater than or equal to " + (shotLoopValue - 6));
-        console.log("and less than or equal to " + (shotLoopValue) + "?"); */
+        if(releasePoint >= -9 && releasePoint <= 9) {
+          console.log("Good Release!!!");
 
-        shotLength1 = -217 - (-7 * shotLoopCount1);
-        $disc.addClass("disc-shot-1");
-        $disc.css({"transform": "translate(20px," + shotLength1 + "px) rotate(90deg)"});
+          /* console.log("is " + shotPower + " greater than or equal to " + (shotLoopValue - 6));
+          console.log("and less than or equal to " + (shotLoopValue) + "?"); */
 
-        console.log("shotLength1 = " + shotLength1);
+          shotLength1 = -217 - (-7 * shotLoopCount1);
+          $disc.addClass("disc-shot-1");
+          $disc.css({"transform": "translate(20px," + shotLength1 + "px) rotate(90deg)"});
 
-        shadowMultiplier1 = Math.floor(shotLength1 * 0.15);
-        shadowShotLength1 = (shotLength1 - shadowMultiplier1);
-        $discShadow.addClass("disc-shadow-shot-1");
-        $discShadow.css({"transform": "translate(20px," + shadowShotLength1 + "px) rotate(90deg)"});
+          console.log("shotLength1 = " + shotLength1);
 
-  /* ----- Shot 2 Functionality ----- */
-        setTimeout(function() {
-          shotLength2 = -310 - (-10 * shotLoopCount2);
-          $disc.addClass("disc-shot-2");
-          $disc.css({"transform": "translate(0px," + shotLength2 + "px) rotate(90deg)"});
+          shadowMultiplier1 = Math.floor(shotLength1 * 0.15);
+          shadowShotLength1 = (shotLength1 - shadowMultiplier1);
+          $discShadow.addClass("disc-shadow-shot-1");
+          $discShadow.css({"transform": "translate(20px," + shadowShotLength1 + "px) rotate(90deg)"});
 
-          console.log("shotLength2 = " + shotLength2);
-          console.log("");
+    /* ----- Shot 2 Functionality ----- */
+          setTimeout(function() {
+            shotLength2 = -310 - (-10 * shotLoopCount2);
+            $disc.addClass("disc-shot-2");
+            $disc.css({"transform": "translate(0px," + shotLength2 + "px) rotate(90deg)"});
 
-          shadowShotLength2 = shotLength2;
-          $discShadow.addClass("disc-shadow-shot-2");
-          $discShadow.css({"transform": "translate(0px," + shadowShotLength2 + "px) rotate(90deg)"});
-        }, 1000);
+            console.log("shotLength2 = " + shotLength2);
+            console.log("");
+
+            shadowShotLength2 = shotLength2;
+            $discShadow.addClass("disc-shadow-shot-2");
+            $discShadow.css({"transform": "translate(0px," + shadowShotLength2 + "px) rotate(90deg)"});
+          }, 1000);
+        }
       }
       shotLoopCount1++;
       setTimeout(function() {
