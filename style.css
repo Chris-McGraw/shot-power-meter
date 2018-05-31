@@ -168,7 +168,7 @@
   border: 1px solid darkGray;
   border-radius: 1px;
   background-color: lightGray;
-  z-index: -1;
+  z-index: 0;
 }
 
 #meter-release-middle {

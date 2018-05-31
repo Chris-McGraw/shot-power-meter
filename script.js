@@ -131,16 +131,19 @@ $(document).ready(function() {
   /* ------------------- Spacebar Press 2  ------------------- */
     else if(event.which === 32 && spaceBarPress === 1) {
       indicatorGhostPositionX = $powerIndicator.position().left;
-      $indicatorTrail.removeClass("expand-trail");
-      $indicatorTrail.removeClass("retract-trail");
-      $indicatorTrail.css("width", indicatorGhostPositionX + "px");
-      $indicatorGhost.css("left", indicatorGhostPositionX + 7 + "px");
-      $indicatorGhost.removeClass("hidden");
 
-      shotPower = Math.floor($powerIndicator.position().left);
-      console.log("shotPower = " + shotPower);
+      if(indicatorGhostPositionX > 0) {
+        $indicatorTrail.removeClass("expand-trail");
+        $indicatorTrail.removeClass("retract-trail");
+        $indicatorTrail.css("width", indicatorGhostPositionX + "px");
+        $indicatorGhost.css("left", indicatorGhostPositionX + 7 + "px");
+        $indicatorGhost.removeClass("hidden");
 
-      spaceBarPress = 2;
+        shotPower = Math.floor($powerIndicator.position().left);
+        spaceBarPress = 2;
+
+        console.log("shotPower = " + shotPower);
+      }
     }
 
   /* ------------------- Spacebar Press 3  ------------------- */
