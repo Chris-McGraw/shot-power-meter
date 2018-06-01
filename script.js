@@ -27,13 +27,10 @@ $(document).ready(function() {
 
   function playerShot() {
     for(shotLoopValue = 217; shotLoopValue > 0; shotLoopValue -= 7) {
+    /* ------------ Good Release ------------ */
       if(shotPower >= (shotLoopValue - 6) && shotPower <= (shotLoopValue)) {
         if(releasePoint >= -9 && releasePoint <= 9) {
-          console.log("Good Release!!!");
-
-          /* console.log("is " + shotPower + " greater than or equal to " + (shotLoopValue - 6));
-          console.log("and less than or equal to " + (shotLoopValue) + "?"); */
-
+        /* ----- Shot Part 1 ----- */
           shotLength1 = -217 - (-7 * shotLoopCount1);
           $disc.addClass("disc-shot-1");
           $disc.css({"transform": "translate(20px," + shotLength1 + "px) rotate(90deg)"});
@@ -45,7 +42,7 @@ $(document).ready(function() {
           $discShadow.addClass("disc-shadow-shot-1");
           $discShadow.css({"transform": "translate(20px," + shadowShotLength1 + "px) rotate(90deg)"});
 
-    /* ----- Shot 2 Functionality ----- */
+        /* ----- Shot Part 2 ----- */
           setTimeout(function() {
             shotLength2 = -310 - (-10 * shotLoopCount2);
             $disc.addClass("disc-shot-2");
@@ -60,10 +57,11 @@ $(document).ready(function() {
           }, 1000);
         }
 
+      /* ---------- Right Release 1 ---------- */
         else if(releasePoint >= 10 && releasePoint <= 63) {
           for(releaseLoopValue = 63; releaseLoopValue >= 15; releaseLoopValue -= 6) {
             if(releasePoint >= (releaseLoopValue - 5) && releasePoint <= (releaseLoopValue)) {
-
+        /* ----- Shot Part 1 ----- */
               console.log("between: " + (releaseLoopValue - 5));
               console.log("and: " + releaseLoopValue);
 
@@ -81,7 +79,7 @@ $(document).ready(function() {
               $discShadow.addClass("disc-shadow-shot-1");
               $discShadow.css({"transform": "translate(" + shotWidth1 + "px," + shadowShotLength1 + "px) rotate(90deg)"});
 
-        /* ----- Shot 2 Functionality ----- */
+        /* ----- Shot Part 2 ----- */
               setTimeout(function() {
                 shotLength2 = -310 - (-10 * shotLoopCount2);
 
