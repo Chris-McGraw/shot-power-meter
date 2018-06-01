@@ -66,10 +66,9 @@ $(document).ready(function() {
               console.log("and: " + releaseLoopValue);
 
               shotLength1 = -217 - (-7 * shotLoopCount1);
-              $disc.addClass("disc-shot-1");
-
               shotWidth1 = 80 - (6.5 * releaseLoopCount1);
 
+              $disc.addClass("disc-shot-1");
               $disc.css({"transform": "translate(" + shotWidth1 + "px," + shotLength1 + "px) rotate(90deg)"});
 
               console.log("shotLength1 = " + shotLength1);
@@ -82,11 +81,9 @@ $(document).ready(function() {
         /* ----- Shot Part 2 ----- */
               setTimeout(function() {
                 shotLength2 = -310 - (-10 * shotLoopCount2);
-
-                $disc.addClass("disc-shot-2");
-
                 shotWidth2 = 120 - (13 * releaseLoopCount2);
 
+                $disc.addClass("disc-shot-2");
                 $disc.css({"transform": "translate(" + shotWidth2 + "px," + shotLength2 + "px) rotate(90deg)"});
 
                 console.log("shotLength2 = " + shotLength2);
