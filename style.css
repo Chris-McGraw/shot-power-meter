@@ -26,12 +26,12 @@
 }
 
 .disc-shot-1 {
-  transform: translate(40px, -190px) rotate(90deg);
+  /* transform: translate(40px, -190px) rotate(90deg); */
   transition: transform 1000ms linear;
 }
 
 .disc-shot-2 {
-  transform: translate(15px, -290px) rotate(90deg);
+  /* transform: translate(15px, -290px) rotate(90deg); */
   transition: transform 1200ms ease-out;
 }
 
