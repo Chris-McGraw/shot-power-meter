@@ -101,6 +101,50 @@ $(document).ready(function() {
           }
         }
 
+        /* ---------- Right Release 2 ---------- */
+          else if(releasePoint >= -27 && releasePoint <= -8) {
+            for(releaseLoopValue = -27; releaseLoopValue <= -12; releaseLoopValue += 5) {
+              if(releasePoint >= (releaseLoopValue) && releasePoint <= (releaseLoopValue + 4)) {
+          /* ----- Shot Part 1 ----- */
+                console.log("between: " + (releaseLoopValue + 4));
+                console.log("and: " + releaseLoopValue);
+
+                shotLength1 = -217 - (-7 * shotLoopCount1);
+                shotWidth1 = 67 - (13 * releaseLoopCount1);
+
+                $disc.addClass("disc-shot-1");
+                $disc.css({"transform": "translate(" + shotWidth1 + "px," + shotLength1 + "px) rotate(90deg)"});
+
+                console.log("shotLength1 = " + shotLength1);
+
+                shadowMultiplier1 = Math.floor(shotLength1 * 0.15);
+                shadowShotLength1 = (shotLength1 - shadowMultiplier1);
+                $discShadow.addClass("disc-shadow-shot-1");
+                $discShadow.css({"transform": "translate(" + shotWidth1 + "px," + shadowShotLength1 + "px) rotate(90deg)"});
+
+          /* ----- Shot Part 2 ----- */
+                setTimeout(function() {
+                  shotLength2 = -310 - (-10 * shotLoopCount2);
+                  shotWidth2 = 94 - (26 * releaseLoopCount2);
+
+                  $disc.addClass("disc-shot-2");
+                  $disc.css({"transform": "translate(" + shotWidth2 + "px," + shotLength2 + "px) rotate(90deg)"});
+
+                  console.log("shotLength2 = " + shotLength2);
+                  console.log("");
+
+                  shadowShotLength2 = shotLength2;
+                  $discShadow.addClass("disc-shadow-shot-2");
+                  $discShadow.css({"transform": "translate(" + shotWidth2 + "px," + shadowShotLength2 + "px) rotate(90deg)"});
+                }, 1000);
+              }
+              releaseLoopCount1++;
+              setTimeout(function() {
+                releaseLoopCount2++;
+              }, 1000);
+            }
+          }
+
       }
       shotLoopCount1++;
       setTimeout(function() {
