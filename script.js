@@ -27,8 +27,8 @@ $(document).ready(function() {
 
   function playerShot() {
     for(shotLoopValue = 217; shotLoopValue > 0; shotLoopValue -= 7) {
-    /* ------------ Good Release ------------ */
       if(shotPower >= (shotLoopValue - 6) && shotPower <= (shotLoopValue)) {
+      /* ------------ Good Release ------------ */
         if(releasePoint >= -9 && releasePoint <= 9) {
         /* ----- Shot Part 1 ----- */
           shotLength1 = -217 - (-7 * shotLoopCount1);
