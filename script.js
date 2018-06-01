@@ -55,6 +55,44 @@ $(document).ready(function() {
             $discShadow.css({"transform": "translate(0px," + shadowShotLength2 + "px) rotate(90deg)"});
           }, 1000);
         }
+
+        else if(releasePoint >= 64 && releasePoint <= 217) {
+          /* console.log("is " + shotPower + " greater than or equal to " + (shotLoopValue - 6));
+          console.log("and less than or equal to " + (shotLoopValue) + "?"); */
+
+          shotLength1 = -217 - (-7 * shotLoopCount1);
+          $disc.addClass("disc-shot-1");
+
+          shotWidth1 = 20;
+
+          $disc.css({"transform": "translate(" + shotWidth1 + "px," + shotLength1 + "px) rotate(90deg)"});
+
+          console.log("shotLength1 = " + shotLength1);
+
+          shadowMultiplier1 = Math.floor(shotLength1 * 0.15);
+          shadowShotLength1 = (shotLength1 - shadowMultiplier1);
+          $discShadow.addClass("disc-shadow-shot-1");
+          $discShadow.css({"transform": "translate(" + shotWidth1 + "px," + shadowShotLength1 + "px) rotate(90deg)"});
+
+    /* ----- Shot 2 Functionality ----- */
+          setTimeout(function() {
+            shotLength2 = -310 - (-10 * shotLoopCount2);
+
+            $disc.addClass("disc-shot-2");
+
+            shotWidth2 = 0;
+
+            $disc.css({"transform": "translate(" + shotWidth2 + "px," + shotLength2 + "px) rotate(90deg)"});
+
+            console.log("shotLength2 = " + shotLength2);
+            console.log("");
+
+            shadowShotLength2 = shotLength2;
+            $discShadow.addClass("disc-shadow-shot-2");
+            $discShadow.css({"transform": "translate(" + shotWidth2 + "px," + shadowShotLength2 + "px) rotate(90deg)"});
+          }, 1000);
+        }
+
       }
       shotLoopCount1++;
       setTimeout(function() {
