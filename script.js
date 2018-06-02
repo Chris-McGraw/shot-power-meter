@@ -15,11 +15,13 @@ $(document).ready(function() {
   var shotPower = 0;
   var shotLength1 = 0;
   var shotLength2 = 0;
-  var releasePoint = 0;
   var shotLoopCount1 = 0;
   var shotLoopCount2 = 0;
 
   var releaseLoopValue = 0;
+  var releasePoint = 0;
+  var shotWidth1 = 0;
+  var shotWidth2 = 0;
   var releaseLoopCount1 = 0;
   var releaseLoopCount2 = 0;
 
@@ -41,14 +43,14 @@ $(document).ready(function() {
 
   function shotStep2() {
     $disc.addClass("disc-shot-2");
-    $disc.css({"transform": "translate(" + shotWidth2 + "px," + shotLength2 + "px) rotate(90deg)"});
+    $disc.css({"transform": "translate(" + shotWidth2 + "px," + shotLength2 + "px) rotate(180deg)"});
 
     console.log("shotLength2 = " + shotLength2);
     console.log("shotWidth2 = " + shotWidth2);
 
     shadowShotLength2 = shotLength2;
     $discShadow.addClass("disc-shadow-shot-2");
-    $discShadow.css({"transform": "translate(" + shotWidth2 + "px," + shadowShotLength2 + "px) rotate(90deg)"});
+    $discShadow.css({"transform": "translate(" + shotWidth2 + "px," + shadowShotLength2 + "px) rotate(180deg)"});
   }
 
 
