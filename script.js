@@ -38,6 +38,7 @@ $(document).ready(function() {
     $discShadow.css({"transform": "translate(" + shotWidth1 + "px," + shadowShotLength1 + "px) rotate(90deg)"});
   }
 
+
   function shotStep2() {
     $disc.addClass("disc-shot-2");
     $disc.css({"transform": "translate(" + shotWidth2 + "px," + shotLength2 + "px) rotate(90deg)"});
@@ -49,6 +50,7 @@ $(document).ready(function() {
     $discShadow.addClass("disc-shadow-shot-2");
     $discShadow.css({"transform": "translate(" + shotWidth2 + "px," + shadowShotLength2 + "px) rotate(90deg)"});
   }
+
 
   function playerShot() {
     for(shotLoopValue = 217; shotLoopValue > 0; shotLoopValue -= 7) {
