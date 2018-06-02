@@ -32,28 +32,32 @@ $(document).ready(function() {
         if(releasePoint >= -9 && releasePoint <= 9) {
         /* ----- Shot Part 1 ----- */
           shotLength1 = -217 - (-7 * shotLoopCount1);
+          shotWidth1 = 20;
+
           $disc.addClass("disc-shot-1");
-          $disc.css({"transform": "translate(20px," + shotLength1 + "px) rotate(90deg)"});
+          $disc.css({"transform": "translate(" + shotWidth1 + "px," + shotLength1 + "px) rotate(90deg)"});
 
           console.log("shotLength1 = " + shotLength1);
 
           shadowMultiplier1 = Math.floor(shotLength1 * 0.15);
           shadowShotLength1 = (shotLength1 - shadowMultiplier1);
           $discShadow.addClass("disc-shadow-shot-1");
-          $discShadow.css({"transform": "translate(20px," + shadowShotLength1 + "px) rotate(90deg)"});
+          $discShadow.css({"transform": "translate(" + shotWidth1 + "px," + shadowShotLength1 + "px) rotate(90deg)"});
 
         /* ----- Shot Part 2 ----- */
           setTimeout(function() {
             shotLength2 = -310 - (-10 * shotLoopCount2);
+            shotWidth2 = 0;
+
             $disc.addClass("disc-shot-2");
-            $disc.css({"transform": "translate(0px," + shotLength2 + "px) rotate(90deg)"});
+            $disc.css({"transform": "translate(" + shotWidth2 + "px," + shotLength2 + "px) rotate(90deg)"});
 
             console.log("shotLength2 = " + shotLength2);
             console.log("");
 
             shadowShotLength2 = shotLength2;
             $discShadow.addClass("disc-shadow-shot-2");
-            $discShadow.css({"transform": "translate(0px," + shadowShotLength2 + "px) rotate(90deg)"});
+            $discShadow.css({"transform": "translate(" + shotWidth2 + "px," + shadowShotLength2 + "px) rotate(90deg)"});
           }, 1000);
         }
 
@@ -62,8 +66,7 @@ $(document).ready(function() {
           for(releaseLoopValue = 63; releaseLoopValue >= 15; releaseLoopValue -= 6) {
             if(releasePoint >= (releaseLoopValue - 5) && releasePoint <= (releaseLoopValue)) {
         /* ----- Shot Part 1 ----- */
-              console.log("between: " + (releaseLoopValue - 5));
-              console.log("and: " + releaseLoopValue);
+              console.log("releaseLoopRange = " + (releaseLoopValue - 5) + " - " + releaseLoopValue);
 
               shotLength1 = -217 - (-7 * shotLoopCount1);
               shotWidth1 = 80 - (6.5 * releaseLoopCount1);
@@ -116,6 +119,7 @@ $(document).ready(function() {
                 $disc.css({"transform": "translate(" + shotWidth1 + "px," + shotLength1 + "px) rotate(90deg)"});
 
                 console.log("shotLength1 = " + shotLength1);
+                console.log("shotWidth1 = " + shotWidth1);
 
                 shadowMultiplier1 = Math.floor(shotLength1 * 0.15);
                 shadowShotLength1 = (shotLength1 - shadowMultiplier1);
@@ -131,7 +135,7 @@ $(document).ready(function() {
                   $disc.css({"transform": "translate(" + shotWidth2 + "px," + shotLength2 + "px) rotate(90deg)"});
 
                   console.log("shotLength2 = " + shotLength2);
-                  console.log("");
+                  console.log("shotWidth2 = " + shotWidth2);
 
                   shadowShotLength2 = shotLength2;
                   $discShadow.addClass("disc-shadow-shot-2");
@@ -237,6 +241,7 @@ $(document).ready(function() {
       shotPower = Math.floor($powerIndicator.position().left);
       spaceBarPress = 2;
 
+      console.log("");
       console.log("shotPower = " + shotPower);
     }
   }
