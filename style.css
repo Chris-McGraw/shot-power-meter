@@ -10,6 +10,30 @@
   display: none;
 }
 
+#shot-preview-1 {
+  position: absolute;
+  left: 20px;
+  right: 0;
+  top: 132px;
+  width: 0px;
+  height: 208px;
+  margin: auto;
+  border: 0.5px dashed white;
+  transform: rotate(5deg);
+}
+
+#shot-preview-2 {
+  position: absolute;
+  left: 18px;
+  right: 0;
+  top: 35px;
+  width: 0px;
+  height: 95px;
+  margin: auto;
+  border: 0.5px dashed white;
+  transform: rotate(-12deg);
+}
+
 #disc {
   position: absolute;
   left: 0;
