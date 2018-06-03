@@ -2,6 +2,9 @@ $(document).ready(function() {
 
 /* ------------------------- Variable Declarations ------------------------- */
 
+  var $shotPreview1 = $("#shot-preview-1");
+  var $shotPreview2 = $("#shot-preview-2");
+  var $shotPreviewAccent = $("#shot-preview-accent");
   var $disc = $("#disc");
   var $discShadow = $("#disc-shadow");
   var $powerIndicator = $("#power-indicator");
@@ -26,6 +29,25 @@ $(document).ready(function() {
   var releaseLoopCount2 = 0;
 
 /* ------------------------- Function Declarations ------------------------- */
+
+  function shotPreviewLoop() {
+    setTimeout(function() {
+      $shotPreviewAccent.addClass("shot-preview-accent-move-1");
+    }, 0);
+
+    setTimeout(function() {
+      $shotPreviewAccent.addClass("shot-preview-accent-move-2");
+    }, 2000);
+
+    setTimeout(function() {
+      $shotPreviewAccent.removeClass("shot-preview-accent-move-1");
+      $shotPreviewAccent.removeClass("shot-preview-accent-move-2");
+    }, 3200);
+
+    setTimeout(function() {
+      shotPreviewLoop();
+    }, 3600);
+  }
 
   function shotStep1() {
     $disc.addClass("disc-shot-1");
@@ -260,6 +282,8 @@ $(document).ready(function() {
   }
 
 /* ---------------------------- Event Handlers ---------------------------- */
+
+  /* shotPreviewLoop(); */
 
   $(document).keydown(function(event) {
     if(event.which === 32 && spaceBarPress === 0) {
