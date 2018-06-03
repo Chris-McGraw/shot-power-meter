@@ -2,6 +2,9 @@ $(document).ready(function() {
 
 /* ------------------------- Variable Declarations ------------------------- */
 
+  var $shotPreview1 = $("#shot-preview-1");
+  var $shotPreview2 = $("#shot-preview-2");
+  var $shotPreviewAccent = $("#shot-preview-accent");
   var $disc = $("#disc");
   var $discShadow = $("#disc-shadow");
   var $powerIndicator = $("#power-indicator");
@@ -26,6 +29,25 @@ $(document).ready(function() {
   var releaseLoopCount2 = 0;
 
 /* ------------------------- Function Declarations ------------------------- */
+
+  function shotPreviewLoop() {
+    setTimeout(function() {
+      $shotPreviewAccent.addClass("shot-preview-accent-move-1");
+    }, 0);
+
+    setTimeout(function() {
+      $shotPreviewAccent.addClass("shot-preview-accent-move-2");
+    }, 2000);
+
+    setTimeout(function() {
+      $shotPreviewAccent.removeClass("shot-preview-accent-move-1");
+      $shotPreviewAccent.removeClass("shot-preview-accent-move-2");
+    }, 3200);
+
+    setTimeout(function() {
+      shotPreviewLoop();
+    }, 3600);
+  }
 
   function shotStep1() {
     $disc.addClass("disc-shot-1");
@@ -77,33 +99,7 @@ $(document).ready(function() {
           }, 1000);
         }
 
-      /* ---------- Right Release 1 ---------- */
-        else if(releasePoint >= 10 && releasePoint <= 63) {
-          for(releaseLoopValue = 63; releaseLoopValue >= 15; releaseLoopValue -= 6) {
-            if(releasePoint >= (releaseLoopValue - 5) && releasePoint <= (releaseLoopValue)) {
-        /* ----- Shot Part 1 ----- */
-              console.log("releaseLoopRange = " + (releaseLoopValue - 5) + " & " + releaseLoopValue);
-
-              shotLength1 = -217 - (-7 * shotLoopCount1);
-              shotWidth1 = 80 - (6.5 * releaseLoopCount1);
-
-              shotStep1();
-        /* ----- Shot Part 2 ----- */
-              setTimeout(function() {
-                shotLength2 = -310 - (-10 * shotLoopCount2);
-                shotWidth2 = 120 - (13 * releaseLoopCount2);
-
-                shotStep2();
-              }, 1000);
-            }
-            releaseLoopCount1++;
-            setTimeout(function() {
-              releaseLoopCount2++;
-            }, 1000);
-          }
-        }
-
-      /* ---------- Right Release 2 ---------- */
+      /* ---------- Late Release ---------- */
         else if(releasePoint >= -27 && releasePoint <= -8) {
           for(releaseLoopValue = -27; releaseLoopValue <= -12; releaseLoopValue += 5) {
             if(releasePoint >= (releaseLoopValue) && releasePoint <= (releaseLoopValue + 4)) {
@@ -118,6 +114,38 @@ $(document).ready(function() {
               setTimeout(function() {
                 shotLength2 = -310 - (-10 * shotLoopCount2);
                 shotWidth2 = 94 - (26 * releaseLoopCount2);
+
+                shotStep2();
+              }, 1000);
+            }
+            releaseLoopCount1++;
+            setTimeout(function() {
+              releaseLoopCount2++;
+            }, 1000);
+          }
+        }
+
+      /* ---------- Early Release ---------- */
+        else if(releasePoint >= 10 && releasePoint <= 217) {
+          for(releaseLoopValue = 217; releaseLoopValue >= 25; releaseLoopValue -= 16) {
+            if(releasePoint >= (releaseLoopValue - 15) && releasePoint <= (releaseLoopValue)) {
+        /* ----- Shot Part 1 ----- */
+              console.log("releaseLoopRange = " + (releaseLoopValue - 6) + " & " + releaseLoopValue);
+
+              shotLength1 = -217 - (-7 * shotLoopCount1);
+              shotWidth1 = -40 + (2 * releaseLoopCount1);
+
+              shotStep1();
+        /* ----- Shot Part 2 ----- */
+              setTimeout(function() {
+                shotLength2 = -310 - (-10 * shotLoopCount2);
+
+                if(shotPower >= 80) {
+                  shotWidth2 = -110 + (4.5 * releaseLoopCount2);
+                }
+                else {
+                  shotWidth2 = (-110 + (4.5 * releaseLoopCount2)) / 2;
+                }
 
                 shotStep2();
               }, 1000);
@@ -254,6 +282,8 @@ $(document).ready(function() {
   }
 
 /* ---------------------------- Event Handlers ---------------------------- */
+
+  /* shotPreviewLoop(); */
 
   $(document).keydown(function(event) {
     if(event.which === 32 && spaceBarPress === 0) {
