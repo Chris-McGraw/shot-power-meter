@@ -5,6 +5,7 @@ $(document).ready(function() {
   var $shotPreview1 = $("#shot-preview-1");
   var $shotPreview2 = $("#shot-preview-2");
   var $shotPreviewAccent = $("#shot-preview-accent");
+  var $discContainer = $("#disc-container");
   var $disc = $("#disc");
   var $discShadow = $("#disc-shadow");
   var $powerIndicator = $("#power-indicator");
@@ -49,9 +50,37 @@ $(document).ready(function() {
     }, 3600);
   }
 
+
+  function shotStep() {
+    $disc.addClass("disc-shot");
+    $disc.css({"transform": "translateY(" + shotLength1 + "px) rotate(720deg)"});
+
+    $discContainer.addClass("disc-shot-end");
+    $discContainer.css({"transform": "translateX(" + shotWidth1 + "px)"});
+
+    console.log("shotLength1 = " + shotLength1);
+    console.log("shotWidth1 = " + shotWidth1);
+    console.log("shotWidth2 = " + shotWidth2);
+
+    shadowMultiplier1 = Math.floor(shotLength1 * 0.15);
+    shadowShotLength1 = (shotLength1 - shadowMultiplier1);
+    $discShadow.addClass("disc-shot");
+    $discShadow.css({"transform": "translateY(" + shadowShotLength1 + "px) rotate(720deg)"});
+
+    setTimeout(function() {
+      $discShadow.addClass("disc-shot-end");
+      $discShadow.css({"transform": "translateY(" + shotLength1 + "px)"});
+      $discContainer.css({"transform": "translateX(" + shotWidth2 + "px)"});
+    }, 1200);
+  }
+
+
   function shotStep1() {
     $disc.addClass("disc-shot-1");
-    $disc.css({"transform": "translate(" + shotWidth1 + "px," + shotLength1 + "px) rotate(90deg)"});
+    $disc.css({"transform": "translateY(" + shotLength1 + "px) rotate(90deg)"});
+
+    $discContainer.addClass("disc-shot-1");
+    $discContainer.css({"transform": "translateX(" + shotWidth1 + "px)"});
 
     console.log("shotLength1 = " + shotLength1);
     console.log("shotWidth1 = " + shotWidth1);
@@ -81,22 +110,15 @@ $(document).ready(function() {
       if(shotPower >= (shotLoopValue - 6) && shotPower <= (shotLoopValue)) {
         console.log("shotLoopRange = " + (shotLoopValue - 6) + " & " + shotLoopValue);
 
-      /* ------------ Good Release ------------ */
+      /* ------------ Perfect Release ------------ */
         if(releasePoint >= -9 && releasePoint <= 9) {
-        /* ----- Shot Part 1 ----- */
           console.log("Good Release!");
 
-          shotLength1 = -217 - (-7 * shotLoopCount1);
-          shotWidth1 = 20;
+          shotLength1 = -310 - (-10 * shotLoopCount1);
+          shotWidth1 = 8 - (0.25 * shotLoopCount1);
+          shotWidth2 = -6 + ( 0.175 * shotLoopCount1);
 
-          shotStep1();
-        /* ----- Shot Part 2 ----- */
-          setTimeout(function() {
-            shotLength2 = -310 - (-10 * shotLoopCount2);
-            shotWidth2 = 0;
-
-            shotStep2();
-          }, 1000);
+          shotStep();
         }
 
       /* ---------- Late Release ---------- */
@@ -167,11 +189,25 @@ $(document).ready(function() {
     setTimeout(function() {
       $disc.removeClass("disc-shot-1");
       $disc.removeClass("disc-shot-2");
+
+      $disc.removeClass("disc-shot");
+
+      /* $disc.removeClass("disc-shot-end"); */
+
       $disc.removeAttr("style");
-      $disc.addClass("disc-return");
+
+     /* $disc.addClass("disc-return"); */
+
+      $discContainer.removeClass("disc-shot");
+      $discContainer.removeClass("disc-shot-end");
+      $discContainer.removeAttr("style");
 
       $discShadow.removeClass("disc-shadow-shot-1");
       $discShadow.removeClass("disc-shadow-shot-2");
+
+      $discShadow.removeClass("disc-shot");
+      $discShadow.removeClass("disc-shot-end");
+
       $discShadow.removeAttr("style");
       $discShadow.addClass("disc-return");
 
