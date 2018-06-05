@@ -112,13 +112,34 @@ $(document).ready(function() {
 
       /* ------------ Perfect Release ------------ */
         if(releasePoint >= -9 && releasePoint <= 9) {
-          console.log("Good Release!");
+          console.log("releaseLoopRange = -9 & 9");
+          console.log("----- Perfect Release -----");
 
           shotLength1 = -310 - (-10 * shotLoopCount1);
           shotWidth1 = 8 - (0.25 * shotLoopCount1);
           shotWidth2 = -6 + ( 0.175 * shotLoopCount1);
 
           shotStep();
+        }
+
+      /* ---------- Early Release ---------- */
+        else if(releasePoint >= 10 && releasePoint <= 217) {
+          for(releaseLoopValue = 217; releaseLoopValue >= 17; releaseLoopValue -= 8) {
+            if(releasePoint >= (releaseLoopValue - 7) && releasePoint <= (releaseLoopValue)) {
+              console.log("releaseLoopRange = " + (releaseLoopValue - 7) + " & " + releaseLoopValue);
+              console.log("----- Early Release -----");
+
+              shotLength1 = -310 - (-10 * shotLoopCount1);
+              shotWidth1 = -60 - (-1.2 * releaseLoopCount1);
+              shotWidth2 = -120 - (-2.40 * releaseLoopCount1);
+
+              shotStep();
+            }
+            releaseLoopCount1++;
+            setTimeout(function() {
+              releaseLoopCount2++;
+            }, 1000);
+          }
         }
 
       /* ---------- Late Release ---------- */
@@ -136,38 +157,6 @@ $(document).ready(function() {
               setTimeout(function() {
                 shotLength2 = -310 - (-10 * shotLoopCount2);
                 shotWidth2 = 94 - (26 * releaseLoopCount2);
-
-                shotStep2();
-              }, 1000);
-            }
-            releaseLoopCount1++;
-            setTimeout(function() {
-              releaseLoopCount2++;
-            }, 1000);
-          }
-        }
-
-      /* ---------- Early Release ---------- */
-        else if(releasePoint >= 10 && releasePoint <= 217) {
-          for(releaseLoopValue = 217; releaseLoopValue >= 25; releaseLoopValue -= 16) {
-            if(releasePoint >= (releaseLoopValue - 15) && releasePoint <= (releaseLoopValue)) {
-        /* ----- Shot Part 1 ----- */
-              console.log("releaseLoopRange = " + (releaseLoopValue - 6) + " & " + releaseLoopValue);
-
-              shotLength1 = -217 - (-7 * shotLoopCount1);
-              shotWidth1 = -40 + (2 * releaseLoopCount1);
-
-              shotStep1();
-        /* ----- Shot Part 2 ----- */
-              setTimeout(function() {
-                shotLength2 = -310 - (-10 * shotLoopCount2);
-
-                if(shotPower >= 80) {
-                  shotWidth2 = -110 + (4.5 * releaseLoopCount2);
-                }
-                else {
-                  shotWidth2 = (-110 + (4.5 * releaseLoopCount2)) / 2;
-                }
 
                 shotStep2();
               }, 1000);
@@ -211,9 +200,11 @@ $(document).ready(function() {
       $discShadow.removeAttr("style");
       $discShadow.addClass("disc-return");
 
+      shotLoopValue = 0;
       shotLoopCount1 = 0;
       shotLoopCount2 = 0;
 
+      releaseLoopValue = 0;
       releaseLoopCount1 = 0;
       releaseLoopCount2 = 0;
 
