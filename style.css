@@ -58,7 +58,7 @@
   transition: transform 1200ms linear;
 }
 
-#disc {
+#disc-container {
   position: absolute;
   left: 0;
   right: 0;
@@ -66,11 +66,22 @@
   width: 10px;
   height: 10px;
   margin: auto;
-  background-image: url("https://res.cloudinary.com/dtwyohvli/image/upload/v1527429339/disc-16x16_wi4gex.png");
-  background-repeat: no-repeat;
   z-index: 1;
 
   /* border: 1px solid black; */
+}
+
+#disc {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 10px;
+  height: 10px;
+  margin: auto;
+  background-image: url("https://res.cloudinary.com/dtwyohvli/image/upload/v1527429339/disc-16x16_wi4gex.png");
+  background-repeat: no-repeat;
+  z-index: 1;
 }
 
 .disc-shot-1 {
@@ -81,6 +92,14 @@
   transition: transform 1200ms ease-out;
 }
 
+.disc-shot {
+  transition: transform 2200ms ease-out;
+}
+
+.disc-shot-end {
+  transition: transform 1500ms ease-out;
+}
+
 .disc-return {
   position: absolute;
   top: 342px;
@@ -88,9 +107,9 @@
 
 #disc-shadow {
   position: absolute;
-  left: 0px;
+  left: -3px;
   right: 0;
-  top: 340px;
+  top: -3px;
   width: 16px;
   height: 16px;
   margin: auto;
@@ -101,12 +120,12 @@
 }
 
 .disc-shadow-shot-1 {
-  transform: translate(36px, -162px) rotate(90deg);
+  /* transform: translate(36px, -162px) rotate(90deg); */
   transition: transform 1000ms linear;
 }
 
 .disc-shadow-shot-2 {
-  transform: translate(15px, -290px) rotate(90deg);
+  /* transform: translate(15px, -290px) rotate(90deg); */
   transition: transform 1200ms ease-out;
 }
 
