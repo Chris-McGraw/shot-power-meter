@@ -140,37 +140,19 @@ $(document).ready(function() {
     }
   /* ----- Shot Reset Functionality ----- */
     setTimeout(function() {
-      $disc.removeClass("disc-shot-1");
-      $disc.removeClass("disc-shot-2");
-
-      $disc.removeClass("disc-shot");
-
-      /* $disc.removeClass("disc-shot-end"); */
-
-      $disc.removeAttr("style");
-
-     /* $disc.addClass("disc-return"); */
-
-      $discContainer.removeClass("disc-shot");
       $discContainer.removeClass("disc-shot-end");
       $discContainer.removeAttr("style");
-
-      $discShadow.removeClass("disc-shadow-shot-1");
-      $discShadow.removeClass("disc-shadow-shot-2");
-
+      $disc.removeClass("disc-shot");
+      $disc.removeAttr("style");
       $discShadow.removeClass("disc-shot");
       $discShadow.removeClass("disc-shot-end");
-
       $discShadow.removeAttr("style");
-      $discShadow.addClass("disc-return");
-
       shotLoopValue = 0;
       shotLoopCount1 = 0;
-
       releaseLoopValue = 0;
       releaseLoopCount1 = 0;
-
     }, 3000);
+
   }
 
 
