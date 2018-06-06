@@ -75,36 +75,6 @@ $(document).ready(function() {
   }
 
 
-  function shotStep1() {
-    $disc.addClass("disc-shot-1");
-    $disc.css({"transform": "translateY(" + shotLength1 + "px) rotate(90deg)"});
-
-    $discContainer.addClass("disc-shot-1");
-    $discContainer.css({"transform": "translateX(" + shotWidth1 + "px)"});
-
-    console.log("shotLength1 = " + shotLength1);
-    console.log("shotWidth1 = " + shotWidth1);
-
-    shadowMultiplier1 = Math.floor(shotLength1 * 0.15);
-    shadowShotLength1 = (shotLength1 - shadowMultiplier1);
-    $discShadow.addClass("disc-shadow-shot-1");
-    $discShadow.css({"transform": "translate(" + shotWidth1 + "px," + shadowShotLength1 + "px) rotate(90deg)"});
-  }
-
-
-  function shotStep2() {
-    $disc.addClass("disc-shot-2");
-    $disc.css({"transform": "translate(" + shotWidth2 + "px," + shotLength2 + "px) rotate(180deg)"});
-
-    console.log("shotLength2 = " + shotLength2);
-    console.log("shotWidth2 = " + shotWidth2);
-
-    shadowShotLength2 = shotLength2;
-    $discShadow.addClass("disc-shadow-shot-2");
-    $discShadow.css({"transform": "translate(" + shotWidth2 + "px," + shadowShotLength2 + "px) rotate(180deg)"});
-  }
-
-
   function playerShot() {
     for(shotLoopValue = 217; shotLoopValue > 0; shotLoopValue -= 7) {
       if(shotPower >= (shotLoopValue - 6) && shotPower <= (shotLoopValue)) {
