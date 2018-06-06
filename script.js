@@ -143,23 +143,29 @@ $(document).ready(function() {
         }
 
       /* ---------- Late Release ---------- */
-        else if(releasePoint >= -27 && releasePoint <= -8) {
-          for(releaseLoopValue = -27; releaseLoopValue <= -12; releaseLoopValue += 5) {
-            if(releasePoint >= (releaseLoopValue) && releasePoint <= (releaseLoopValue + 4)) {
-        /* ----- Shot Part 1 ----- */
-              console.log("releaseLoopRange = " + (releaseLoopValue + 4) + " & " + releaseLoopValue);
+        else if(releasePoint >= -27 && releasePoint <= -10) {
+          for(releaseLoopValue = -27; releaseLoopValue <= -12; releaseLoopValue += 3) {
+            if(releasePoint >= (releaseLoopValue) && releasePoint <= (releaseLoopValue + 2)) {
+              console.log("releaseLoopRange = " + (releaseLoopValue + 2) + " & " + releaseLoopValue);
+              console.log("----- Late Release -----");
 
-              shotLength1 = -217 - (-7 * shotLoopCount1);
-              shotWidth1 = 67 - (13 * releaseLoopCount1);
+              shotLength1 = -310 - (-10 * shotLoopCount1);
+              shotWidth1 = 80 - (13 * releaseLoopCount1);
 
-              shotStep1();
-        /* ----- Shot Part 2 ----- */
-              setTimeout(function() {
-                shotLength2 = -310 - (-10 * shotLoopCount2);
-                shotWidth2 = 94 - (26 * releaseLoopCount2);
+              if(releasePoint <= - 19) {
+                shotWidth2 =  120 - (30 * releaseLoopCount1);
+              }
+              else if(releasePoint <= - 16 && releasePoint >= -18) {
+                shotWidth2 = 40 - (0);
+              }
+              else if(releasePoint <= - 13 && releasePoint >= -15) {
+                shotWidth2 = 40 - (15);
+              }
+              else if(releasePoint <= - 10 && releasePoint >= -12) {
+                shotWidth2 = 40 - (30);
+              }
 
-                shotStep2();
-              }, 1000);
+              shotStep();
             }
             releaseLoopCount1++;
             setTimeout(function() {
