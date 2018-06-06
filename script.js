@@ -18,16 +18,13 @@ $(document).ready(function() {
   var shotLoopValue = 0;
   var shotPower = 0;
   var shotLength1 = 0;
-  var shotLength2 = 0;
   var shotLoopCount1 = 0;
-  var shotLoopCount2 = 0;
 
   var releaseLoopValue = 0;
   var releasePoint = 0;
   var shotWidth1 = 0;
   var shotWidth2 = 0;
   var releaseLoopCount1 = 0;
-  var releaseLoopCount2 = 0;
 
 /* ------------------------- Function Declarations ------------------------- */
 
@@ -106,9 +103,6 @@ $(document).ready(function() {
               shotStep();
             }
             releaseLoopCount1++;
-            setTimeout(function() {
-              releaseLoopCount2++;
-            }, 1000);
           }
         }
 
@@ -138,17 +132,11 @@ $(document).ready(function() {
               shotStep();
             }
             releaseLoopCount1++;
-            setTimeout(function() {
-              releaseLoopCount2++;
-            }, 1000);
           }
         }
 
       }
       shotLoopCount1++;
-      setTimeout(function() {
-        shotLoopCount2++;
-      }, 1000);
     }
   /* ----- Shot Reset Functionality ----- */
     setTimeout(function() {
@@ -178,11 +166,9 @@ $(document).ready(function() {
 
       shotLoopValue = 0;
       shotLoopCount1 = 0;
-      shotLoopCount2 = 0;
 
       releaseLoopValue = 0;
       releaseLoopCount1 = 0;
-      releaseLoopCount2 = 0;
 
     }, 3000);
   }
