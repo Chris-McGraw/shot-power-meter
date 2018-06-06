@@ -75,36 +75,6 @@ $(document).ready(function() {
   }
 
 
-  function shotStep1() {
-    $disc.addClass("disc-shot-1");
-    $disc.css({"transform": "translateY(" + shotLength1 + "px) rotate(90deg)"});
-
-    $discContainer.addClass("disc-shot-1");
-    $discContainer.css({"transform": "translateX(" + shotWidth1 + "px)"});
-
-    console.log("shotLength1 = " + shotLength1);
-    console.log("shotWidth1 = " + shotWidth1);
-
-    shadowMultiplier1 = Math.floor(shotLength1 * 0.15);
-    shadowShotLength1 = (shotLength1 - shadowMultiplier1);
-    $discShadow.addClass("disc-shadow-shot-1");
-    $discShadow.css({"transform": "translate(" + shotWidth1 + "px," + shadowShotLength1 + "px) rotate(90deg)"});
-  }
-
-
-  function shotStep2() {
-    $disc.addClass("disc-shot-2");
-    $disc.css({"transform": "translate(" + shotWidth2 + "px," + shotLength2 + "px) rotate(180deg)"});
-
-    console.log("shotLength2 = " + shotLength2);
-    console.log("shotWidth2 = " + shotWidth2);
-
-    shadowShotLength2 = shotLength2;
-    $discShadow.addClass("disc-shadow-shot-2");
-    $discShadow.css({"transform": "translate(" + shotWidth2 + "px," + shadowShotLength2 + "px) rotate(180deg)"});
-  }
-
-
   function playerShot() {
     for(shotLoopValue = 217; shotLoopValue > 0; shotLoopValue -= 7) {
       if(shotPower >= (shotLoopValue - 6) && shotPower <= (shotLoopValue)) {
@@ -143,23 +113,29 @@ $(document).ready(function() {
         }
 
       /* ---------- Late Release ---------- */
-        else if(releasePoint >= -27 && releasePoint <= -8) {
-          for(releaseLoopValue = -27; releaseLoopValue <= -12; releaseLoopValue += 5) {
-            if(releasePoint >= (releaseLoopValue) && releasePoint <= (releaseLoopValue + 4)) {
-        /* ----- Shot Part 1 ----- */
-              console.log("releaseLoopRange = " + (releaseLoopValue + 4) + " & " + releaseLoopValue);
+        else if(releasePoint >= -27 && releasePoint <= -10) {
+          for(releaseLoopValue = -27; releaseLoopValue <= -12; releaseLoopValue += 3) {
+            if(releasePoint >= (releaseLoopValue) && releasePoint <= (releaseLoopValue + 2)) {
+              console.log("releaseLoopRange = " + (releaseLoopValue + 2) + " & " + releaseLoopValue);
+              console.log("----- Late Release -----");
 
-              shotLength1 = -217 - (-7 * shotLoopCount1);
-              shotWidth1 = 67 - (13 * releaseLoopCount1);
+              shotLength1 = -310 - (-10 * shotLoopCount1);
+              shotWidth1 = 80 - (13 * releaseLoopCount1);
 
-              shotStep1();
-        /* ----- Shot Part 2 ----- */
-              setTimeout(function() {
-                shotLength2 = -310 - (-10 * shotLoopCount2);
-                shotWidth2 = 94 - (26 * releaseLoopCount2);
+              if(releasePoint <= - 19) {
+                shotWidth2 =  120 - (30 * releaseLoopCount1);
+              }
+              else if(releasePoint <= - 16 && releasePoint >= -18) {
+                shotWidth2 = 40 - (0);
+              }
+              else if(releasePoint <= - 13 && releasePoint >= -15) {
+                shotWidth2 = 40 - (15);
+              }
+              else if(releasePoint <= - 10 && releasePoint >= -12) {
+                shotWidth2 = 40 - (30);
+              }
 
-                shotStep2();
-              }, 1000);
+              shotStep();
             }
             releaseLoopCount1++;
             setTimeout(function() {
