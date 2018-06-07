@@ -97,8 +97,8 @@ $(document).ready(function() {
               console.log("----- Early Release -----");
 
               shotLength1 = -310 - (-10 * shotLoopCount1);
-              shotWidth1 = -60 - (-1.2 * releaseLoopCount1);
-              shotWidth2 = -120 - (-2.40 * releaseLoopCount1);
+              shotWidth1 = -80 - (-2.10 * releaseLoopCount1);
+              shotWidth2 = -120 - (-2.58 * releaseLoopCount1);
 
               shotStep();
             }
