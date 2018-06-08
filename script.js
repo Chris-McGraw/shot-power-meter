@@ -18,16 +18,13 @@ $(document).ready(function() {
   var shotLoopValue = 0;
   var shotPower = 0;
   var shotLength1 = 0;
-  var shotLength2 = 0;
   var shotLoopCount1 = 0;
-  var shotLoopCount2 = 0;
 
   var releaseLoopValue = 0;
   var releasePoint = 0;
   var shotWidth1 = 0;
   var shotWidth2 = 0;
   var releaseLoopCount1 = 0;
-  var releaseLoopCount2 = 0;
 
 /* ------------------------- Function Declarations ------------------------- */
 
@@ -100,15 +97,12 @@ $(document).ready(function() {
               console.log("----- Early Release -----");
 
               shotLength1 = -310 - (-10 * shotLoopCount1);
-              shotWidth1 = -60 - (-1.2 * releaseLoopCount1);
-              shotWidth2 = -120 - (-2.40 * releaseLoopCount1);
+              shotWidth1 = -80 - (-2.10 * releaseLoopCount1);
+              shotWidth2 = -120 - (-2.58 * releaseLoopCount1);
 
               shotStep();
             }
             releaseLoopCount1++;
-            setTimeout(function() {
-              releaseLoopCount2++;
-            }, 1000);
           }
         }
 
@@ -126,65 +120,42 @@ $(document).ready(function() {
                 shotWidth2 =  120 - (30 * releaseLoopCount1);
               }
               else if(releasePoint <= - 16 && releasePoint >= -18) {
-                shotWidth2 = 40 - (0);
+                shotWidth1 = 50;
+                shotWidth2 = 47;
               }
               else if(releasePoint <= - 13 && releasePoint >= -15) {
-                shotWidth2 = 40 - (15);
+                shotWidth1 = 47;
+                shotWidth2 = 43;
               }
               else if(releasePoint <= - 10 && releasePoint >= -12) {
-                shotWidth2 = 40 - (30);
+                shotWidth1 = 44;
+                shotWidth2 = 40;
               }
 
               shotStep();
             }
             releaseLoopCount1++;
-            setTimeout(function() {
-              releaseLoopCount2++;
-            }, 1000);
           }
         }
 
       }
       shotLoopCount1++;
-      setTimeout(function() {
-        shotLoopCount2++;
-      }, 1000);
     }
   /* ----- Shot Reset Functionality ----- */
     setTimeout(function() {
-      $disc.removeClass("disc-shot-1");
-      $disc.removeClass("disc-shot-2");
-
-      $disc.removeClass("disc-shot");
-
-      /* $disc.removeClass("disc-shot-end"); */
-
-      $disc.removeAttr("style");
-
-     /* $disc.addClass("disc-return"); */
-
-      $discContainer.removeClass("disc-shot");
       $discContainer.removeClass("disc-shot-end");
       $discContainer.removeAttr("style");
-
-      $discShadow.removeClass("disc-shadow-shot-1");
-      $discShadow.removeClass("disc-shadow-shot-2");
-
+      $disc.removeClass("disc-shot");
+      $disc.removeAttr("style");
       $discShadow.removeClass("disc-shot");
       $discShadow.removeClass("disc-shot-end");
-
       $discShadow.removeAttr("style");
-      $discShadow.addClass("disc-return");
-
       shotLoopValue = 0;
       shotLoopCount1 = 0;
-      shotLoopCount2 = 0;
-
       releaseLoopValue = 0;
       releaseLoopCount1 = 0;
-      releaseLoopCount2 = 0;
-
     }, 3000);
+
   }
 
 
