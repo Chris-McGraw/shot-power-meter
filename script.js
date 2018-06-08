@@ -120,13 +120,16 @@ $(document).ready(function() {
                 shotWidth2 =  120 - (30 * releaseLoopCount1);
               }
               else if(releasePoint <= - 16 && releasePoint >= -18) {
-                shotWidth2 = 40 - (0);
+                shotWidth1 = 50;
+                shotWidth2 = 47;
               }
               else if(releasePoint <= - 13 && releasePoint >= -15) {
-                shotWidth2 = 40 - (15);
+                shotWidth1 = 47;
+                shotWidth2 = 43;
               }
               else if(releasePoint <= - 10 && releasePoint >= -12) {
-                shotWidth2 = 40 - (30);
+                shotWidth1 = 44;
+                shotWidth2 = 40;
               }
 
               shotStep();
