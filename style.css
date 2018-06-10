@@ -58,6 +58,19 @@
   transition: transform 1200ms linear;
 }
 
+#player-sprite {
+  position: absolute;
+  left: 16px;
+  right: 0;
+  top: 330px;
+  width: 32px;
+  height: 32px;
+  margin: auto;
+  background-image: url("https://res.cloudinary.com/dtwyohvli/image/upload/v1528561402/player-sprite-back-32x32_kp6fe7.png");
+  background-repeat: no-repeat;
+  z-index: 2;
+}
+
 #disc-container {
   position: absolute;
   left: 0;
@@ -112,7 +125,7 @@
   width: 608px;
   height: 448px;
   margin: auto;
-  background-image: url("https://res.cloudinary.com/dtwyohvli/image/upload/v1527431556/hole-test-blank-tee-608x448_uw3o4j.png");
+  background-image: url("https://res.cloudinary.com/dtwyohvli/image/upload/v1528556897/hole-test-bushes-608x448_sb4zke.png");
   border: 1px solid black;
 }
 
