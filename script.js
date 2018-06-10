@@ -2,9 +2,15 @@ $(document).ready(function() {
 
 /* ------------------------- Variable Declarations ------------------------- */
 
+  var backhandShot0 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1528561402/player-sprite-back-32x32_kp6fe7.png";
+  var backhandShot1 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1528648833/backhand-shot-1_vkf3os.png";
+  var backhandShot2 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1528648833/backhand-shot-2_l84gyv.png";
+  var backhandShot3 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1528648833/backhand-shot-3_sm2bjv.png";
+
   var $shotPreview1 = $("#shot-preview-1");
   var $shotPreview2 = $("#shot-preview-2");
   var $shotPreviewAccent = $("#shot-preview-accent");
+  var $playerSprite = $("#player-sprite");
   var $discContainer = $("#disc-container");
   var $disc = $("#disc");
   var $discShadow = $("#disc-shadow");
@@ -14,12 +20,10 @@ $(document).ready(function() {
 
   var indicatorGhostPositionX = 0;
   var spaceBarPress = 0;
-
   var shotLoopValue = 0;
   var shotPower = 0;
   var shotLength1 = 0;
   var shotLoopCount1 = 0;
-
   var releaseLoopValue = 0;
   var releasePoint = 0;
   var shotWidth1 = 0;
@@ -45,6 +49,40 @@ $(document).ready(function() {
     setTimeout(function() {
       shotPreviewLoop();
     }, 3600);
+  }
+
+
+  function backhandShotAnimation() {
+    $playerSprite.attr("src", backhandShot0);
+    $playerSprite.addClass("player-drive-movement");
+
+    setTimeout(function() {
+      $playerSprite.attr("src", backhandShot1);
+    }, 200);
+
+    setTimeout(function() {
+      $playerSprite.attr("src", backhandShot2);
+    }, 400);
+
+    setTimeout(function() {
+      $playerSprite.attr("src", backhandShot3);
+    }, 600);
+
+    setTimeout(function() {
+      $playerSprite.attr("src", backhandShot2);
+    }, 800);
+
+    setTimeout(function() {
+      $playerSprite.attr("src", backhandShot1);
+    }, 1000);
+
+    setTimeout(function() {
+      $playerSprite.attr("src", backhandShot0);
+    }, 1200);
+
+    setTimeout(function() {
+      $playerSprite.removeClass("player-drive-movement");
+    }, 2000);
   }
 
 
@@ -225,6 +263,8 @@ $(document).ready(function() {
 
       console.log("");
       console.log("shotPower = " + shotPower);
+
+      backhandShotAnimation();
     }
   }
 
