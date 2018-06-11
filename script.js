@@ -263,8 +263,6 @@ $(document).ready(function() {
 
       console.log("");
       console.log("shotPower = " + shotPower);
-
-      backhandShotAnimation();
     }
   }
 
@@ -285,7 +283,11 @@ $(document).ready(function() {
       console.log("releasePoint = " + releasePoint);
     }
 
-    playerShot();
+    backhandShotAnimation();
+
+    setTimeout(function() {
+      playerShot();
+    }, 1200);
 
     $powerIndicator.removeClass("power-indicator-move-right");
     $powerIndicator.removeClass("power-indicator-move-return");
