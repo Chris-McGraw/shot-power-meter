@@ -58,19 +58,37 @@
   transition: transform 1200ms linear;
 }
 
+#teepad {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 320px;
+  margin: auto;
+  z-index: 2;
+}
+
 #player-sprite {
   position: absolute;
   left: 0;
   right: 0;
   top: 330px;
   margin: auto;
-  z-index: 2;
+  z-index: 3;
 }
 
 .player-drive-movement {
   position: absolute;
-  transform: translate(0px, -20px);
-  transition: transform 1200ms linear;
+  transform: translate(0px, -25px);
+  transition: transform 1200ms ease-in;
+}
+
+#disc-temp {
+  position: absolute;
+  left: 18px;
+  right: 0;
+  top: 350px;
+  margin: auto;
+  z-index: 2;
 }
 
 #disc-container {
