@@ -58,13 +58,22 @@
   transition: transform 1200ms linear;
 }
 
+#teepad {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 320px;
+  margin: auto;
+  z-index: 2;
+}
+
 #player-sprite {
   position: absolute;
   left: 0;
   right: 0;
   top: 330px;
   margin: auto;
-  z-index: 2;
+  z-index: 3;
 }
 
 .player-drive-movement {
@@ -79,7 +88,7 @@
   right: 0;
   top: 350px;
   margin: auto;
-  z-index: 0;
+  z-index: 2;
 }
 
 #disc-container {
