@@ -11,6 +11,7 @@ $(document).ready(function() {
   var $shotPreview2 = $("#shot-preview-2");
   var $shotPreviewAccent = $("#shot-preview-accent");
   var $playerSprite = $("#player-sprite");
+  var $discTemp = $("#disc-temp");
   var $discContainer = $("#disc-container");
   var $disc = $("#disc");
   var $discShadow = $("#disc-shadow");
@@ -55,8 +56,15 @@ $(document).ready(function() {
   function backhandShotAnimation() {
     $playerSprite.attr("src", backhandShot0);
     $playerSprite.addClass("player-drive-movement");
+    $disc.addClass("player-drive-movement");
+    $discShadow.addClass("player-drive-movement");
 
     setTimeout(function() {
+      $discTemp.addClass("hidden");
+    }, 140);
+
+    setTimeout(function() {
+      $discTemp.addClass("hidden");
       $playerSprite.attr("src", backhandShot1);
     }, 200);
 
@@ -181,10 +189,13 @@ $(document).ready(function() {
     }
   /* ----- Shot Reset Functionality ----- */
     setTimeout(function() {
+      $discTemp.removeClass("hidden");
       $discContainer.removeClass("disc-shot-end");
       $discContainer.removeAttr("style");
       $disc.removeClass("disc-shot");
       $disc.removeAttr("style");
+      $disc.removeClass("player-drive-movement");
+      $discShadow.removeClass("player-drive-movement");
       $discShadow.removeClass("disc-shot");
       $discShadow.removeClass("disc-shot-end");
       $discShadow.removeAttr("style");
