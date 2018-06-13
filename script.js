@@ -6,6 +6,7 @@ $(document).ready(function() {
   var backhandShot1 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1528648833/backhand-shot-1_vkf3os.png";
   var backhandShot2 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1528648833/backhand-shot-2_l84gyv.png";
   var backhandShot3 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1528648833/backhand-shot-3_sm2bjv.png";
+  var backhandShot4 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1528901321/backhand-shot-4_lnrbf5.png";
 
   var $shotPreview1 = $("#shot-preview-1");
   var $shotPreview2 = $("#shot-preview-2");
@@ -61,36 +62,41 @@ $(document).ready(function() {
 
     setTimeout(function() {
       $discTemp.addClass("hidden");
-    }, 140);
+    }, 100);
 
     setTimeout(function() {
       $discTemp.addClass("hidden");
       $playerSprite.attr("src", backhandShot1);
-    }, 200);
+    }, 150);
 
     setTimeout(function() {
       $playerSprite.attr("src", backhandShot2);
-    }, 400);
+    }, 300);
 
     setTimeout(function() {
       $playerSprite.attr("src", backhandShot3);
-    }, 600);
+    }, 450);
 
     setTimeout(function() {
       $playerSprite.attr("src", backhandShot2);
-    }, 800);
+    }, 600);
 
     setTimeout(function() {
       $playerSprite.attr("src", backhandShot1);
-    }, 1000);
+    }, 750);
 
     setTimeout(function() {
       $playerSprite.attr("src", backhandShot0);
-    }, 1200);
+    }, 900);
 
     setTimeout(function() {
+      $playerSprite.attr("src", backhandShot4);
+    }, 1050);
+
+    setTimeout(function() {
+      $playerSprite.attr("src", backhandShot0);
       $playerSprite.removeClass("player-drive-movement");
-    }, 2000);
+    }, 3000);
   }
 
 
@@ -298,7 +304,7 @@ $(document).ready(function() {
 
     setTimeout(function() {
       playerShot();
-    }, 1200);
+    }, 1050);
 
     $powerIndicator.removeClass("power-indicator-move-right");
     $powerIndicator.removeClass("power-indicator-move-return");
