@@ -12,9 +12,7 @@ $(document).ready(function() {
   var backhandShot3 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1528648833/backhand-shot-3_sm2bjv.png";
   var backhandShot4 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1528901321/backhand-shot-4_lnrbf5.png";
 
-  var $shotPreview1 = $("#shot-preview-1");
-  var $shotPreview2 = $("#shot-preview-2");
-  var $shotPreviewAccent = $("#shot-preview-accent");
+  var $shotPreviewPointer = $("#shot-preview-pointer");
   var $playerSprite = $("#player-sprite");
   var $discTemp = $("#disc-temp");
   var $discContainer = $("#disc-container");
@@ -79,8 +77,7 @@ $(document).ready(function() {
 
     setTimeout(function() {
       $playerSprite.attr("src", backhandShot0);
-      $playerSprite.removeClass("player-drive-movement");
-    }, 3000);
+    }, 2000);
   }
 
 
@@ -112,6 +109,8 @@ $(document).ready(function() {
     for(shotLoopValue = 217; shotLoopValue > 0; shotLoopValue -= 7) {
       if(shotPower >= (shotLoopValue - 6) && shotPower <= (shotLoopValue)) {
         console.log("shotLoopRange = " + (shotLoopValue - 6) + " & " + shotLoopValue);
+
+        $shotPreviewPointer.addClass("hidden");
 
       /* ------------ Perfect Release ------------ */
         if(releasePoint >= -9 && releasePoint <= 9) {
@@ -186,6 +185,10 @@ $(document).ready(function() {
     }
   /* ----- Shot Reset Functionality ----- */
     setTimeout(function() {
+
+      $shotPreviewPointer.removeClass("hidden");
+      $playerSprite.removeClass("player-drive-movement");
+
       $discTemp.removeClass("hidden");
       $discContainer.removeClass("disc-shot-end");
       $discContainer.removeAttr("style");

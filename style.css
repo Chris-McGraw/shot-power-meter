@@ -10,6 +10,15 @@
   display: none;
 }
 
+#shot-preview-pointer {
+  position: absolute;
+  left: -12px;
+  right: 0;
+  top: 20px;
+  margin: auto;
+  z-index: 2;
+}
+
 #teepad {
   position: absolute;
   left: 0;
