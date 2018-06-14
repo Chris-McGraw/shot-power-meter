@@ -2,6 +2,10 @@ $(document).ready(function() {
 
 /* ------------------------- Variable Declarations ------------------------- */
 
+  var chainHitAudio = document.getElementById("chain-hit-audio");
+  chainHitAudio.muted = false;
+  chainHitAudio.volume = 0.5;
+
   var backhandShot0 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1528561402/player-sprite-back-32x32_kp6fe7.png";
   var backhandShot1 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1528648833/backhand-shot-1_vkf3os.png";
   var backhandShot2 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1528648833/backhand-shot-2_l84gyv.png";
@@ -139,6 +143,13 @@ $(document).ready(function() {
           shotWidth2 = -6 + ( 0.175 * shotLoopCount1);
 
           shotStep();
+
+        /* ------- ACE Functionality ------- */
+          if(shotPower >= 211 && shotPower <= 217) {
+            setTimeout(function() {
+              chainHitAudio.play();
+            }, 2200);
+          }
         }
 
       /* ---------- Early Release ---------- */
