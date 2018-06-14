@@ -38,26 +38,6 @@ $(document).ready(function() {
 
 /* ------------------------- Function Declarations ------------------------- */
 
-  function shotPreviewLoop() {
-    setTimeout(function() {
-      $shotPreviewAccent.addClass("shot-preview-accent-move-1");
-    }, 0);
-
-    setTimeout(function() {
-      $shotPreviewAccent.addClass("shot-preview-accent-move-2");
-    }, 2000);
-
-    setTimeout(function() {
-      $shotPreviewAccent.removeClass("shot-preview-accent-move-1");
-      $shotPreviewAccent.removeClass("shot-preview-accent-move-2");
-    }, 3200);
-
-    setTimeout(function() {
-      shotPreviewLoop();
-    }, 3600);
-  }
-
-
   function backhandShotAnimation() {
     $playerSprite.attr("src", backhandShot0);
     $playerSprite.addClass("player-drive-movement");
@@ -326,8 +306,6 @@ $(document).ready(function() {
   }
 
 /* ---------------------------- Event Handlers ---------------------------- */
-
-  /* shotPreviewLoop(); */
 
   $(document).keydown(function(event) {
     if(event.which === 32 && spaceBarPress === 0) {
