@@ -2,15 +2,17 @@ $(document).ready(function() {
 
 /* ------------------------- Variable Declarations ------------------------- */
 
+  var chainHitAudio = document.getElementById("chain-hit-audio");
+  chainHitAudio.muted = false;
+  chainHitAudio.volume = 0.5;
+
   var backhandShot0 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1528561402/player-sprite-back-32x32_kp6fe7.png";
   var backhandShot1 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1528648833/backhand-shot-1_vkf3os.png";
   var backhandShot2 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1528648833/backhand-shot-2_l84gyv.png";
   var backhandShot3 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1528648833/backhand-shot-3_sm2bjv.png";
   var backhandShot4 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1528901321/backhand-shot-4_lnrbf5.png";
 
-  var $shotPreview1 = $("#shot-preview-1");
-  var $shotPreview2 = $("#shot-preview-2");
-  var $shotPreviewAccent = $("#shot-preview-accent");
+  var $shotPreviewPointer = $("#shot-preview-pointer");
   var $playerSprite = $("#player-sprite");
   var $discTemp = $("#disc-temp");
   var $discContainer = $("#disc-container");
@@ -33,26 +35,6 @@ $(document).ready(function() {
   var releaseLoopCount1 = 0;
 
 /* ------------------------- Function Declarations ------------------------- */
-
-  function shotPreviewLoop() {
-    setTimeout(function() {
-      $shotPreviewAccent.addClass("shot-preview-accent-move-1");
-    }, 0);
-
-    setTimeout(function() {
-      $shotPreviewAccent.addClass("shot-preview-accent-move-2");
-    }, 2000);
-
-    setTimeout(function() {
-      $shotPreviewAccent.removeClass("shot-preview-accent-move-1");
-      $shotPreviewAccent.removeClass("shot-preview-accent-move-2");
-    }, 3200);
-
-    setTimeout(function() {
-      shotPreviewLoop();
-    }, 3600);
-  }
-
 
   function backhandShotAnimation() {
     $playerSprite.attr("src", backhandShot0);
@@ -95,8 +77,7 @@ $(document).ready(function() {
 
     setTimeout(function() {
       $playerSprite.attr("src", backhandShot0);
-      $playerSprite.removeClass("player-drive-movement");
-    }, 3000);
+    }, 2000);
   }
 
 
@@ -129,6 +110,8 @@ $(document).ready(function() {
       if(shotPower >= (shotLoopValue - 6) && shotPower <= (shotLoopValue)) {
         console.log("shotLoopRange = " + (shotLoopValue - 6) + " & " + shotLoopValue);
 
+        $shotPreviewPointer.addClass("hidden");
+
       /* ------------ Perfect Release ------------ */
         if(releasePoint >= -9 && releasePoint <= 9) {
           console.log("releaseLoopRange = -9 & 9");
@@ -139,6 +122,13 @@ $(document).ready(function() {
           shotWidth2 = -6 + ( 0.175 * shotLoopCount1);
 
           shotStep();
+
+        /* ------- ACE Functionality ------- */
+          if(shotPower >= 211 && shotPower <= 217) {
+            setTimeout(function() {
+              chainHitAudio.play();
+            }, 2200);
+          }
         }
 
       /* ---------- Early Release ---------- */
@@ -195,6 +185,10 @@ $(document).ready(function() {
     }
   /* ----- Shot Reset Functionality ----- */
     setTimeout(function() {
+
+      $shotPreviewPointer.removeClass("hidden");
+      $playerSprite.removeClass("player-drive-movement");
+
       $discTemp.removeClass("hidden");
       $discContainer.removeClass("disc-shot-end");
       $discContainer.removeAttr("style");
@@ -315,8 +309,6 @@ $(document).ready(function() {
   }
 
 /* ---------------------------- Event Handlers ---------------------------- */
-
-  /* shotPreviewLoop(); */
 
   $(document).keydown(function(event) {
     if(event.which === 32 && spaceBarPress === 0) {

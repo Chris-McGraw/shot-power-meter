@@ -10,52 +10,13 @@
   display: none;
 }
 
-#shot-preview-1 {
+#shot-preview-pointer {
   position: absolute;
-  left: 20px;
+  left: -12px;
   right: 0;
-  top: 132px;
-  width: 0px;
-  height: 208px;
+  top: 20px;
   margin: auto;
-  border: 0.5px dashed white;
-  transform: rotate(5deg);
-}
-
-#shot-preview-2 {
-  position: absolute;
-  left: 18px;
-  right: 0;
-  top: 35px;
-  width: 0px;
-  height: 95px;
-  margin: auto;
-  border: 0.5px dashed white;
-  transform: rotate(-12deg);
-}
-
-#shot-preview-accent {
-  position: absolute;
-  left: 0px;
-  right: 0;
-  top: 344px;
-  width: 1px;
-  height: 4px;
-  margin: auto;
-  background-color: white;
-  z-index: 1;
-}
-
-.shot-preview-accent-move-1 {
-  transform: translate(20px, -215px) rotate(5deg);
-  transition: transform 2000ms linear;
-}
-
-.shot-preview-accent-move-2 {
-  position: absolute;
-  left: -2px !important;
-  transform: translate(0px, -310px) rotate(-12deg);
-  transition: transform 1200ms linear;
+  z-index: 2;
 }
 
 #teepad {
