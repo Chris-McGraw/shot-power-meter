@@ -6,12 +6,15 @@ $(document).ready(function() {
   chainHitAudio.muted = false;
   chainHitAudio.volume = 0.5;
 
+  var basketEmptyImg = "https://res.cloudinary.com/dtwyohvli/image/upload/v1529066967/basket-32x48_job1zn.png";
+  var basketMadeDiscImg = "https://res.cloudinary.com/dtwyohvli/image/upload/v1529066874/basket-made-disc-32x48_jg7qi4.png";
   var backhandShot0 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1528561402/player-sprite-back-32x32_kp6fe7.png";
   var backhandShot1 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1528648833/backhand-shot-1_vkf3os.png";
   var backhandShot2 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1528648833/backhand-shot-2_l84gyv.png";
   var backhandShot3 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1528648833/backhand-shot-3_sm2bjv.png";
   var backhandShot4 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1528901321/backhand-shot-4_lnrbf5.png";
 
+  var $basket = $("#basket");
   var $shotPreviewPointer = $("#shot-preview-pointer");
   var $playerSprite = $("#player-sprite");
   var $discTemp = $("#disc-temp");
@@ -127,6 +130,9 @@ $(document).ready(function() {
         /* ------- ACE Functionality ------- */
           if(shotPower >= 211 && shotPower <= 217) {
             setTimeout(function() {
+              $disc.addClass("hidden");
+              $discShadow.addClass("hidden");
+              $basket.attr("src", basketMadeDiscImg);
               chainHitAudio.play();
             }, 2200);
           }
@@ -187,6 +193,7 @@ $(document).ready(function() {
   /* ----- Shot Reset Functionality ----- */
     setTimeout(function() {
 
+      $basket.attr("src", basketEmptyImg);
       $shotPreviewPointer.removeClass("hidden");
       $playerSprite.removeClass("player-drive-movement");
 
@@ -194,9 +201,11 @@ $(document).ready(function() {
       $discContainer.removeClass("disc-shot-end");
       $discContainer.removeAttr("style");
       $discContainer.css("z-index", "1");
+      $disc.removeClass("hidden");
       $disc.removeClass("disc-shot");
       $disc.removeAttr("style");
       $disc.removeClass("player-drive-movement");
+      $discShadow.removeClass("hidden");
       $discShadow.removeClass("player-drive-movement");
       $discShadow.removeClass("disc-shot");
       $discShadow.removeClass("disc-shot-end");
