@@ -10,6 +10,15 @@
   display: none;
 }
 
+#basket {
+  position: absolute;
+  left: -16px;
+  right: 0;
+  top: 6px;
+  margin: auto;
+  z-index: 1;
+}
+
 #shot-preview-pointer {
   position: absolute;
   left: -12px;
@@ -107,7 +116,7 @@
   width: 608px;
   height: 448px;
   margin: auto;
-  background-image: url("https://res.cloudinary.com/dtwyohvli/image/upload/v1528556897/hole-test-bushes-608x448_sb4zke.png");
+  background-image: url("https://res.cloudinary.com/dtwyohvli/image/upload/v1529066842/hole-test-latest-608x448_jrjzo0.png");
   border: 1px solid black;
 }
 
