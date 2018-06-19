@@ -226,11 +226,9 @@ $(document).ready(function() {
     }
   /* ----- Shot Reset Functionality ----- */
     setTimeout(function() {
-
       $basket.attr("src", basketEmptyImg);
       $shotPreviewPointer.removeClass("hidden");
       $playerSprite.removeClass("player-drive-movement");
-
       $discTemp.removeClass("hidden");
       $discContainer.removeClass("disc-shot-end");
       $discContainer.removeAttr("style");
@@ -244,12 +242,16 @@ $(document).ready(function() {
       $discShadow.removeClass("disc-shot");
       $discShadow.removeClass("disc-shot-end");
       $discShadow.removeAttr("style");
+      $powerIndicator.css("left", "0px");
+      $indicatorTrail.css("width", "4px");
+      $indicatorGhost.addClass("hidden");
+
+      spaceBarPress = 0;
       shotLoopValue = 0;
       shotLoopCount1 = 0;
       releaseLoopValue = 0;
       releaseLoopCount1 = 0;
     }, 3000);
-
   }
 
 
@@ -289,13 +291,9 @@ $(document).ready(function() {
         setTimeout(function() {
           $indicatorTrail.removeClass("expand-trail");
           $indicatorTrail.removeClass("retract-trail");
-          $indicatorTrail.css("width", "4px");
-          $indicatorGhost.addClass("hidden");
           $powerIndicator.removeClass("power-indicator-move-right");
           $powerIndicator.removeClass("power-indicator-move-left");
           $powerIndicator.removeClass("power-indicator-finish-left");
-          $powerIndicator.css("left", "0px");
-          spaceBarPress = 0;
         }, 700);
       }, 1200);
     }, 1200);
