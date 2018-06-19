@@ -146,6 +146,20 @@
   z-index: 0;
 }
 
+#release-point-perfect {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 4px;
+  height: 18px;
+  margin: auto;
+  border: 1px solid white;
+  border-radius: 1px;
+  background-color: white;
+  z-index: 0;
+}
+
 #power-indicator {
   position: absolute;
   left: 0;
