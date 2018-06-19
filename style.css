@@ -146,6 +146,15 @@
   z-index: 0;
 }
 
+#release-point-good {
+  position: absolute;
+  left: 20px;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  background-color: darkBlue;
+}
+
 #release-point-perfect {
   position: absolute;
   left: 0;
@@ -174,17 +183,6 @@
   z-index: 1;
 }
 
-#indicator-trail {
-  position: absolute;
-  left: 8px;
-  top: 3px;
-  width: 4px;
-  height: 14px;
-  border-radius: 1px;
-  background-color: darkGray;
-  z-index: -1;
-}
-
 .power-indicator-move-right {
   transform: translate(217px);
   transition: transform 1200ms linear;
@@ -203,6 +201,17 @@
 .power-indicator-finish-left {
   transform: translate(-27px);
   transition: transform 270ms linear;
+}
+
+#indicator-trail {
+  position: absolute;
+  left: 8px;
+  top: 3px;
+  width: 4px;
+  height: 14px;
+  border-radius: 1px;
+  background-color: darkGray;
+  z-index: -1;
 }
 
 .expand-trail {
@@ -227,13 +236,4 @@
   border-radius: 1px;
   background-color: lightGray;
   z-index: 0;
-}
-
-#meter-release-middle {
-  position: absolute;
-  left: 20px;
-  top: 0;
-  width: 20px;
-  height: 20px;
-  background-color: darkBlue;
 }
