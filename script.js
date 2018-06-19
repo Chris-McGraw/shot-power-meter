@@ -116,14 +116,48 @@ $(document).ready(function() {
         $shotPreviewPointer.addClass("hidden");
         $discContainer.css("z-index", "2");
 
+      /* ------------ Good Release Early ------------ */
+        if(releasePoint >= 1 && releasePoint <= 9) {
+          for(releaseLoopValue = 9; releaseLoopValue >= 3; releaseLoopValue -= 3) {
+            if(releasePoint >= (releaseLoopValue - 2) && releasePoint <= (releaseLoopValue)) {
+              console.log("releaseLoopRange = " + (releaseLoopValue - 2) + " & " + releaseLoopValue);
+              console.log("----- Good Release Early -----");
+
+              shotLength1 = -310 - (-10 * shotLoopCount1);
+              shotWidth1 = -18 - (-3.15 * releaseLoopCount1);
+              shotWidth2 = -40 - (-3.87 * releaseLoopCount1);
+
+              shotStep();
+            }
+            releaseLoopCount1++;
+          }
+        }
+
+      /* ------------ Good Release Late ------------ */
+        else if(releasePoint >= -9 && releasePoint <= -1) {
+          for(releaseLoopValue = -9; releaseLoopValue <= -3; releaseLoopValue += 3) {
+            if(releasePoint >= (releaseLoopValue) && releasePoint <= (releaseLoopValue + 2)) {
+              console.log("releaseLoopRange = " + (releaseLoopValue + 2) + " & " + releaseLoopValue);
+              console.log("----- Good Release Late -----");
+
+              shotLength1 = -310 - (-10 * shotLoopCount1);
+              shotWidth1 = 32 - (6.65 * releaseLoopCount1);
+              shotWidth2 = 29 - (8.5 * releaseLoopCount1);
+
+              shotStep();
+            }
+            releaseLoopCount1++;
+          }
+        }
+
       /* ------------ Perfect Release ------------ */
-        if(releasePoint >= -9 && releasePoint <= 9) {
-          console.log("releaseLoopRange = -9 & 9");
+        else if(releasePoint === 0) {
+          console.log("releaseLoopRange = 0");
           console.log("----- Perfect Release -----");
 
           shotLength1 = -310 - (-10 * shotLoopCount1);
-          shotWidth1 = 8 - (0.25 * shotLoopCount1);
-          shotWidth2 = -6 + ( 0.175 * shotLoopCount1);
+          shotWidth1 = 8;
+          shotWidth2 = -6;
 
           shotStep();
 
