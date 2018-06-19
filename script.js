@@ -133,17 +133,22 @@ $(document).ready(function() {
           }
         }
 
-      /* ------------ Good Release Late ------------
+      /* ------------ Good Release Late ------------ */
         else if(releasePoint >= -9 && releasePoint <= -1) {
-          console.log("releaseLoopRange = -9 & -1");
-          console.log("----- Good Release Late -----");
+          for(releaseLoopValue = -9; releaseLoopValue <= -3; releaseLoopValue += 3) {
+            if(releasePoint >= (releaseLoopValue) && releasePoint <= (releaseLoopValue + 2)) {
+              console.log("releaseLoopRange = " + (releaseLoopValue + 2) + " & " + releaseLoopValue);
+              console.log("----- Good Release Late -----");
 
-          shotLength1 = -310 - (-10 * shotLoopCount1);
-          shotWidth1 = 8 - (0.25 * shotLoopCount1);
-          shotWidth2 = -6 + ( 0.175 * shotLoopCount1);
+              shotLength1 = -310 - (-10 * shotLoopCount1);
+              shotWidth1 = 32 - (6.65 * releaseLoopCount1);
+              shotWidth2 = 29 - (8.5 * releaseLoopCount1);
 
-          shotStep();
-        } */
+              shotStep();
+            }
+            releaseLoopCount1++;
+          }
+        }
 
       /* ------------ Perfect Release ------------ */
         else if(releasePoint === 0) {
