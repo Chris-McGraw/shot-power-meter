@@ -146,6 +146,29 @@
   z-index: 0;
 }
 
+#release-point-good {
+  position: absolute;
+  left: 20px;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  background-color: darkBlue;
+}
+
+#release-point-perfect {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 4px;
+  height: 18px;
+  margin: auto;
+  border: 1px solid white;
+  border-radius: 1px;
+  background-color: white;
+  z-index: 0;
+}
+
 #power-indicator {
   position: absolute;
   left: 0;
@@ -158,17 +181,6 @@
   border-radius: 1px;
   background-color: lightGray;
   z-index: 1;
-}
-
-#indicator-trail {
-  position: absolute;
-  left: 8px;
-  top: 3px;
-  width: 4px;
-  height: 14px;
-  border-radius: 1px;
-  background-color: darkGray;
-  z-index: -1;
 }
 
 .power-indicator-move-right {
@@ -189,6 +201,17 @@
 .power-indicator-finish-left {
   transform: translate(-27px);
   transition: transform 270ms linear;
+}
+
+#indicator-trail {
+  position: absolute;
+  left: 8px;
+  top: 3px;
+  width: 4px;
+  height: 14px;
+  border-radius: 1px;
+  background-color: darkGray;
+  z-index: -1;
 }
 
 .expand-trail {
@@ -213,13 +236,4 @@
   border-radius: 1px;
   background-color: lightGray;
   z-index: 0;
-}
-
-#meter-release-middle {
-  position: absolute;
-  left: 20px;
-  top: 0;
-  width: 20px;
-  height: 20px;
-  background-color: darkBlue;
 }
