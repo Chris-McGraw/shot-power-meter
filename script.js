@@ -360,7 +360,7 @@ $(document).ready(function() {
 
     setTimeout(function() {
       playerShot();
-    }, 1500);
+    }, 1400);
 
     $powerIndicator.removeClass("power-indicator-move-right");
     $powerIndicator.removeClass("power-indicator-move-return");
