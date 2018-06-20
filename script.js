@@ -49,7 +49,6 @@ $(document).ready(function() {
     $playerSprite.addClass("player-drive-movement");
     $disc.addClass("player-drive-movement");
     $discShadow.addClass("player-drive-movement");
-
     $discTemp.addClass("player-drive-movement");
 
     setTimeout(function() {
@@ -58,7 +57,6 @@ $(document).ready(function() {
 
     setTimeout(function() {
       $playerSprite.attr("src", backhandShot2);
-
       $discTemp.addClass("hidden");
       $discTemp.removeClass("player-drive-movement");
     }, 300);
