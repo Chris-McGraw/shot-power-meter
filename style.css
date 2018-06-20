@@ -50,7 +50,7 @@
 .player-drive-movement {
   position: absolute;
   transform: translate(0px, -25px);
-  transition: transform 1200ms ease-in;
+  transition: transform 1400ms ease-in;
 }
 
 #disc-temp {

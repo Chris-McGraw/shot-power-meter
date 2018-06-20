@@ -1,3 +1,16 @@
+/* ------------------------- IMG File Declarations ------------------------- */
+var basketEmptyImg = "https://res.cloudinary.com/dtwyohvli/image/upload/v1529066967/basket-32x48_job1zn.png";
+var basketMadeDiscImg = "https://res.cloudinary.com/dtwyohvli/image/upload/v1529066874/basket-made-disc-32x48_jg7qi4.png";
+var backhandShot0 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1529506728/DG-GAME-PROTO/backhand-drive-0.png";
+var backhandShot1 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1529529600/DG-GAME-PROTO/backhand-drive-1.png";
+var backhandShot2 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1529529600/DG-GAME-PROTO/backhand-drive-2.png";
+var backhandShot3 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1529529600/DG-GAME-PROTO/backhand-drive-3.png";
+var backhandShot4 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1529529600/DG-GAME-PROTO/backhand-drive-4.png";
+var backhandShot5 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1529529600/DG-GAME-PROTO/backhand-drive-5.png";
+var backhandShot6 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1529529600/DG-GAME-PROTO/backhand-drive-6.png";
+var backhandShot7 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1529529599/DG-GAME-PROTO/backhand-drive-7.png";
+var backhandShot8 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1529529599/DG-GAME-PROTO/backhand-drive-8.png";
+
 $(document).ready(function() {
 
 /* ------------------------- Variable Declarations ------------------------- */
@@ -5,14 +18,6 @@ $(document).ready(function() {
   var chainHitAudio = document.getElementById("chain-hit-audio");
   chainHitAudio.muted = false;
   chainHitAudio.volume = 0.5;
-
-  var basketEmptyImg = "https://res.cloudinary.com/dtwyohvli/image/upload/v1529066967/basket-32x48_job1zn.png";
-  var basketMadeDiscImg = "https://res.cloudinary.com/dtwyohvli/image/upload/v1529066874/basket-made-disc-32x48_jg7qi4.png";
-  var backhandShot0 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1528561402/player-sprite-back-32x32_kp6fe7.png";
-  var backhandShot1 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1528648833/backhand-shot-1_vkf3os.png";
-  var backhandShot2 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1528648833/backhand-shot-2_l84gyv.png";
-  var backhandShot3 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1528648833/backhand-shot-3_sm2bjv.png";
-  var backhandShot4 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1528901321/backhand-shot-4_lnrbf5.png";
 
   var $basket = $("#basket");
   var $shotPreviewPointer = $("#shot-preview-pointer");
@@ -44,18 +49,16 @@ $(document).ready(function() {
     $playerSprite.addClass("player-drive-movement");
     $disc.addClass("player-drive-movement");
     $discShadow.addClass("player-drive-movement");
+    $discTemp.addClass("player-drive-movement");
 
     setTimeout(function() {
-      $discTemp.addClass("hidden");
-    }, 100);
-
-    setTimeout(function() {
-      $discTemp.addClass("hidden");
       $playerSprite.attr("src", backhandShot1);
     }, 150);
 
     setTimeout(function() {
       $playerSprite.attr("src", backhandShot2);
+      $discTemp.addClass("hidden");
+      $discTemp.removeClass("player-drive-movement");
     }, 300);
 
     setTimeout(function() {
@@ -63,24 +66,40 @@ $(document).ready(function() {
     }, 450);
 
     setTimeout(function() {
-      $playerSprite.attr("src", backhandShot2);
+      $playerSprite.attr("src", backhandShot4);
     }, 600);
 
     setTimeout(function() {
-      $playerSprite.attr("src", backhandShot1);
+      $playerSprite.attr("src", backhandShot5);
     }, 750);
 
     setTimeout(function() {
-      $playerSprite.attr("src", backhandShot0);
+      $playerSprite.attr("src", backhandShot6);
     }, 900);
 
     setTimeout(function() {
-      $playerSprite.attr("src", backhandShot4);
+      $playerSprite.attr("src", backhandShot2);
     }, 1050);
 
     setTimeout(function() {
       $playerSprite.attr("src", backhandShot0);
-    }, 2000);
+    }, 1200);
+
+    setTimeout(function() {
+      $playerSprite.attr("src", backhandShot7);
+    }, 1350);
+
+    /* setTimeout(function() {
+      $playerSprite.attr("src", backhandShot7);
+    }, 1500); */
+
+    setTimeout(function() {
+      $playerSprite.attr("src", backhandShot8);
+    }, 2200);
+
+    setTimeout(function() {
+      $playerSprite.attr("src", backhandShot0);
+    }, 2350);
   }
 
 
@@ -341,7 +360,7 @@ $(document).ready(function() {
 
     setTimeout(function() {
       playerShot();
-    }, 1050);
+    }, 1400);
 
     $powerIndicator.removeClass("power-indicator-move-right");
     $powerIndicator.removeClass("power-indicator-move-return");
