@@ -1,4 +1,5 @@
 /* ------------------------- IMG File Declarations ------------------------- */
+
 var basketEmptyImg = "https://res.cloudinary.com/dtwyohvli/image/upload/v1529066967/DG-GAME-PROTO/basket-32x48_job1zn.png";
 var basketMadeDiscImg = "https://res.cloudinary.com/dtwyohvli/image/upload/v1529066874/DG-GAME-PROTO/basket-made-disc-32x48_jg7qi4.png";
 var backhandShot0 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1529506728/DG-GAME-PROTO/backhand-drive-0.png";
@@ -43,6 +44,32 @@ $(document).ready(function() {
   var releaseLoopCount1 = 0;
 
 /* ------------------------- Function Declarations ------------------------- */
+
+  function checkIndicatorPos() {
+    if($powerIndicator.position().left === -27 && spaceBarPress === 2) {
+      releasePoint = -27;
+      console.log("releasePoint = " + releasePoint);
+
+      $powerIndicator.removeClass("power-indicator-move-right");
+      $powerIndicator.removeClass("power-indicator-move-return");
+      $powerIndicator.removeClass("power-indicator-move-left");
+      $powerIndicator.removeClass("power-indicator-finish-left");
+      $powerIndicator.css("left", "-54px");
+
+      backhandShotAnimation();
+      setTimeout(function() {
+        playerShot();
+      }, 1400);
+
+      spaceBarPress = 3;
+    }
+    else if($powerIndicator.position().left > -27 && spaceBarPress === 2) {
+      setTimeout(function() {
+        checkIndicatorPos();
+      }, 100);
+    }
+  }
+
 
   function backhandShotAnimation() {
     $playerSprite.attr("src", backhandShot0);
@@ -308,6 +335,9 @@ $(document).ready(function() {
         indicatorGhostPositionX = $powerIndicator.position().left;
 
         setTimeout(function() {
+          if(spaceBarPress === 1) {
+            spaceBarPress = 0;
+          }
           $indicatorTrail.removeClass("expand-trail");
           $indicatorTrail.removeClass("retract-trail");
           $powerIndicator.removeClass("power-indicator-move-right");
@@ -324,7 +354,7 @@ $(document).ready(function() {
   function spacebarPress2() {
     indicatorGhostPositionX = $powerIndicator.position().left;
 
-    if(indicatorGhostPositionX > 0) {
+    if(indicatorGhostPositionX > 9) {
       $indicatorTrail.removeClass("expand-trail");
       $indicatorTrail.removeClass("retract-trail");
       $indicatorTrail.css("width", indicatorGhostPositionX + "px");
@@ -336,6 +366,8 @@ $(document).ready(function() {
 
       console.log("");
       console.log("shotPower = " + shotPower);
+
+      checkIndicatorPos();
     }
   }
 
