@@ -308,6 +308,10 @@ $(document).ready(function() {
         indicatorGhostPositionX = $powerIndicator.position().left;
 
         setTimeout(function() {
+          if(spaceBarPress === 1) {
+            spaceBarPress = 0;
+          }
+             
           $indicatorTrail.removeClass("expand-trail");
           $indicatorTrail.removeClass("retract-trail");
           $powerIndicator.removeClass("power-indicator-move-right");
