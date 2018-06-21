@@ -327,7 +327,7 @@ $(document).ready(function() {
   function spacebarPress2() {
     indicatorGhostPositionX = $powerIndicator.position().left;
 
-    if(indicatorGhostPositionX > 0) {
+    if(indicatorGhostPositionX > 9) {
       $indicatorTrail.removeClass("expand-trail");
       $indicatorTrail.removeClass("retract-trail");
       $indicatorTrail.css("width", indicatorGhostPositionX + "px");
