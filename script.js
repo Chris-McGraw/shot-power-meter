@@ -1,6 +1,6 @@
 /* ------------------------- IMG File Declarations ------------------------- */
-var basketEmptyImg = "https://res.cloudinary.com/dtwyohvli/image/upload/v1529066967/basket-32x48_job1zn.png";
-var basketMadeDiscImg = "https://res.cloudinary.com/dtwyohvli/image/upload/v1529066874/basket-made-disc-32x48_jg7qi4.png";
+var basketEmptyImg = "https://res.cloudinary.com/dtwyohvli/image/upload/v1529066967/DG-GAME-PROTO/basket-32x48_job1zn.png";
+var basketMadeDiscImg = "https://res.cloudinary.com/dtwyohvli/image/upload/v1529066874/DG-GAME-PROTO/basket-made-disc-32x48_jg7qi4.png";
 var backhandShot0 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1529506728/DG-GAME-PROTO/backhand-drive-0.png";
 var backhandShot1 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1529529600/DG-GAME-PROTO/backhand-drive-1.png";
 var backhandShot2 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1529529600/DG-GAME-PROTO/backhand-drive-2.png";
