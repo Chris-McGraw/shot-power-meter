@@ -132,7 +132,7 @@ $(document).ready(function() {
 
   function shotStep() {
     $disc.addClass("disc-shot");
-    $disc.css({"transform": "translateY(" + shotLength1 + "px) rotate(720deg)"});
+    $disc.css({"transform": "translateY(" + shotLength1 + "px) rotate(270deg)"});
 
     $discContainer.addClass("disc-shot-end");
     $discContainer.css({"transform": "translateX(" + shotWidth1 + "px)"});
@@ -144,7 +144,7 @@ $(document).ready(function() {
     shadowMultiplier1 = Math.floor(shotLength1 * 0.15);
     shadowShotLength1 = (shotLength1 - shadowMultiplier1);
     $discShadow.addClass("disc-shot");
-    $discShadow.css({"transform": "translateY(" + shadowShotLength1 + "px) rotate(720deg)"});
+    $discShadow.css({"transform": "translateY(" + shadowShotLength1 + "px) rotate(270deg)"});
 
     setTimeout(function() {
       $discShadow.addClass("disc-shot-end");
