@@ -80,41 +80,41 @@ $(document).ready(function() {
 
     setTimeout(function() {
       $playerSprite.attr("src", backhandShot1);
-    }, 150);
+    }, 180);
 
     setTimeout(function() {
       $playerSprite.attr("src", backhandShot2);
       $discTemp.addClass("hidden");
       $discTemp.removeClass("player-drive-movement");
-    }, 300);
+    }, 360);
 
     setTimeout(function() {
       $playerSprite.attr("src", backhandShot3);
-    }, 450);
+    }, 540);
 
     setTimeout(function() {
       $playerSprite.attr("src", backhandShot4);
-    }, 600);
+    }, 720);
 
     setTimeout(function() {
       $playerSprite.attr("src", backhandShot5);
-    }, 750);
-
-    setTimeout(function() {
-      $playerSprite.attr("src", backhandShot6);
     }, 900);
 
     setTimeout(function() {
+      $playerSprite.attr("src", backhandShot6);
+    }, 1080);
+
+    setTimeout(function() {
       $playerSprite.attr("src", backhandShot2);
-    }, 1050);
+    }, 1220);
 
     setTimeout(function() {
       $playerSprite.attr("src", backhandShot0);
-    }, 1200);
+    }, 1360);
 
     setTimeout(function() {
       $playerSprite.attr("src", backhandShot7);
-    }, 1350);
+    }, 1500);
 
     /* setTimeout(function() {
       $playerSprite.attr("src", backhandShot7);
@@ -122,17 +122,17 @@ $(document).ready(function() {
 
     setTimeout(function() {
       $playerSprite.attr("src", backhandShot8);
-    }, 2200);
+    }, 2340);
 
     setTimeout(function() {
       $playerSprite.attr("src", backhandShot0);
-    }, 2350);
+    }, 2520);
   }
 
 
   function shotStep() {
     $disc.addClass("disc-shot");
-    $disc.css({"transform": "translateY(" + shotLength1 + "px) rotate(720deg)"});
+    $disc.css({"transform": "translateY(" + shotLength1 + "px) rotate(270deg)"});
 
     $discContainer.addClass("disc-shot-end");
     $discContainer.css({"transform": "translateX(" + shotWidth1 + "px)"});
@@ -144,7 +144,7 @@ $(document).ready(function() {
     shadowMultiplier1 = Math.floor(shotLength1 * 0.15);
     shadowShotLength1 = (shotLength1 - shadowMultiplier1);
     $discShadow.addClass("disc-shot");
-    $discShadow.css({"transform": "translateY(" + shadowShotLength1 + "px) rotate(720deg)"});
+    $discShadow.css({"transform": "translateY(" + shadowShotLength1 + "px) rotate(270deg)"});
 
     setTimeout(function() {
       $discShadow.addClass("disc-shot-end");
