@@ -16,11 +16,17 @@ var backhandShot10 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1529684
 
 $(document).ready(function() {
 
-/* ------------------------- Variable Declarations ------------------------- */
+/* ------------------------ Audio File Declarations ------------------------ */
+
+  var meterUpAudio = document.getElementById("meter-up-audio");
+  meterUpAudio.muted = false;
+  meterUpAudio.volume = 1.0;
 
   var chainHitAudio = document.getElementById("chain-hit-audio");
   chainHitAudio.muted = false;
   chainHitAudio.volume = 0.5;
+
+/* ------------------------- Variable Declarations ------------------------- */
 
   var $basket = $("#basket");
   var $shotPreviewPointer = $("#shot-preview-pointer");
@@ -308,6 +314,9 @@ $(document).ready(function() {
     $powerIndicator.addClass("power-indicator-move-right");
     $indicatorTrail.addClass("expand-trail");
 
+    meterUpAudio.muted = false;
+    meterUpAudio.play();
+
     setTimeout(function() {
       if(spaceBarPress === 2) {
         $powerIndicator.removeClass("power-indicator-move-return");
@@ -356,6 +365,8 @@ $(document).ready(function() {
 
   function spacebarPress2() {
     indicatorGhostPositionX = $powerIndicator.position().left;
+
+    meterUpAudio.muted = true;
 
     if(indicatorGhostPositionX > 9) {
       $indicatorTrail.removeClass("expand-trail");
