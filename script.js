@@ -22,6 +22,10 @@ $(document).ready(function() {
   meterUpAudio.muted = false;
   meterUpAudio.volume = 1.0;
 
+  var meterDownAudio = document.getElementById("meter-down-audio");
+  meterUpAudio.muted = false;
+  meterUpAudio.volume = 1.0;
+
   var chainHitAudio = document.getElementById("chain-hit-audio");
   chainHitAudio.muted = false;
   chainHitAudio.volume = 0.5;
@@ -327,6 +331,9 @@ $(document).ready(function() {
         $powerIndicator.addClass("power-indicator-move-return");
         $indicatorTrail.removeClass("expand-trail");
         $indicatorTrail.addClass("retract-trail");
+
+        meterDownAudio.muted = false;
+        meterDownAudio.play();
       }
       else {
         $powerIndicator.removeClass("power-indicator-move-right");
@@ -367,6 +374,7 @@ $(document).ready(function() {
     indicatorGhostPositionX = $powerIndicator.position().left;
 
     meterUpAudio.muted = true;
+    meterDownAudio.muted = true;
 
     if(indicatorGhostPositionX > 9) {
       $indicatorTrail.removeClass("expand-trail");
