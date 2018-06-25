@@ -132,7 +132,7 @@ $(document).ready(function() {
       shotLoopCount1 = 0;
       releaseLoopValue = 0;
       releaseLoopCount1 = 0;
-    }, 3000);
+    }, 1200);
   }
 
 
