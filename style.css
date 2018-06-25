@@ -10,133 +10,22 @@
   display: none;
 }
 
-#basket {
-  position: absolute;
-  left: -16px;
-  right: 0;
-  top: 6px;
-  margin: auto;
-  z-index: 1;
-}
-
-#shot-preview-pointer {
-  position: absolute;
-  left: -12px;
-  right: 0;
-  top: 20px;
-  margin: auto;
-  z-index: 2;
-}
-
-#teepad {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 320px;
-  margin: auto;
-  box-shadow: 1px -1px 3px rgba(0, 0, 0, 0.6);
-  z-index: 2;
-}
-
-#player-sprite {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 330px;
-  margin: auto;
-  z-index: 3;
-}
-
-.player-drive-movement {
-  position: absolute;
-  transform: translate(0px, -25px);
-  transition: transform 1400ms ease-in;
-}
-
-#disc-temp {
-  position: absolute;
-  left: 18px;
-  right: 0;
-  top: 350px;
-  margin: auto;
-  z-index: 2;
-}
-
-#disc-container {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 342px;
-  width: 10px;
-  height: 10px;
-  margin: auto;
-  z-index: 1;
-
-  /* border: 1px solid black; */
-}
-
-#disc {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  width: 10px;
-  height: 10px;
-  margin: auto;
-  background-image: url("https://res.cloudinary.com/dtwyohvli/image/upload/v1527429339/DG-GAME-PROTO/disc-16x16_wi4gex.png");
-  background-repeat: no-repeat;
-  z-index: 1;
-}
-
-.disc-shot {
-  transition: transform 2200ms ease-out;
-}
-
-.disc-shot-end {
-  transition: transform 1500ms ease-out;
-}
-
-#disc-shadow {
-  position: absolute;
-  left: -3px;
-  right: 0;
-  top: -3px;
-  width: 16px;
-  height: 16px;
-  margin: auto;
-  background-image: url("https://res.cloudinary.com/dtwyohvli/image/upload/v1527519341/DG-GAME-PROTO/disc-shadow-8x8_dnj2yb.png");
-  background-repeat: no-repeat;
-}
-
-#screen-container {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50px;
-  width: 608px;
-  height: 448px;
-  margin: auto;
-  background-image: url("https://res.cloudinary.com/dtwyohvli/image/upload/v1529066842/DG-GAME-PROTO/hole-test-latest-608x448_jrjzo0.png");
-  border: 1px solid black;
-}
-
 #shot-UI-container {
   position: absolute;
   left: 0;
   right: 0;
-  top: 397px;
+  top: 250px;
   width: 400px;
   height: 50px;
   margin: auto;
-
-  /* border: 1px solid black; */
+  border: 1px solid black;
 }
 
 #shot-power-meter {
   position: absolute;
   left: 0;
   right: 0;
-  top: 20px;
+  top: 15px;
   width: 250px;
   height: 20px;
   margin: auto;
