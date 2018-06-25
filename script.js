@@ -72,6 +72,10 @@ $(document).ready(function() {
       $powerIndicator.removeClass("power-indicator-finish-left");
       $powerIndicator.css("left", "-54px");
 
+      meterPressAudio.muted = false;
+      meterPressAudio.currentTime = 0;
+      meterPressAudio.play();
+
       backhandShotAnimation();
 
       setTimeout(function() {
@@ -377,13 +381,12 @@ $(document).ready(function() {
   function spacebarPress2() {
     indicatorGhostPositionX = $powerIndicator.position().left;
 
-    meterUpAudio.muted = true;
-    meterDownAudio.muted = true;
-
-    meterPressAudio.muted = false;
-    meterPressAudio.play();
-
     if(indicatorGhostPositionX > 9) {
+      meterUpAudio.muted = true;
+      meterDownAudio.muted = true;
+      meterPressAudio.muted = false;
+      meterPressAudio.play();
+
       $indicatorTrail.removeClass("expand-trail");
       $indicatorTrail.removeClass("retract-trail");
       $indicatorTrail.css("width", indicatorGhostPositionX + "px");
